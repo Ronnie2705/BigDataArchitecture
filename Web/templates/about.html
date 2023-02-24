@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>About PayLess</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <a href="#">Home</a>
+        <a href="C:\Users\chefs\OneDrive\Desktop\BDA Project\home\about.html">About</a>
+        <a href="#">Contact Us</a>
+        <a href="#">Sign In</a>
+        <a href="#">Sign Up</a>
+      </nav>
+    <style>
+        button {
+            background-color: transparent;
+            border: none;
+            color: gray;
+            cursor: pointer;
+            font-size: 10px;
+            padding: 10px;
+            position: relative;
+          }
+          
+          button::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(180deg);
+            border-style: solid;
+            border-width: 0.4em 0.4em 0 0;
+            border-color: gray;
+            height: 0.8em;
+            width: 0.8em;
+          }
+          
+
+          
+        /* CSS for Navbar */
+      nav {
+        background-color: #4960a6;
+        overflow: hidden;
+      }
+      
+      nav a {
+        float: left;
+        color: #f6af84;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+      }
+      
+      nav a:hover {
+        background-color: #ddd;
+        color: black;
+      }
+
+      /* CSS for Page Content */
+      .content {
+        padding: 50px;
+        text-align: center;
+      }
+      
+      h1 {
+        font-size: 50px;
+        color: black  ;
+      }
+      
+      p {
+        font-size: 24px;
+        color: black  ;
+      }
+
+      img{
+        width: 100px;
+        align-self: center;
+        height: 100px;
+        border-radius: 20px 20px;
+      }
+		.popup {
+			display: none;
+		}
+
+		.show {
+			display: block;
+		}
+	</style>
+	<div>
+		<h2>About PayLess</h2>
+		<button onclick="togglePopup('about-popup')"></button>
+		<div id="about-popup" class="popup">
+			<p>Welcome to PayLess, the website that helps you find the best deals by comparing prices of two items side by side. Our goal is to make shopping easier and more affordable for everyone, so you can save money on the things you love.</p>
+		</div>
+	</div>
+
+	<div>
+		<h2>How it Works</h2>
+		<button onclick="togglePopup('how-it-works-popup')"></button>
+		<div id="how-it-works-popup" class="popup">
+			<p>It's easy to use PayLess! Simply select two items you're interested in and we'll display the prices from different retailers. You can then compare the prices and choose the best deal for you. It's that simple!</p>
+		</div>
+	</div>
+
+    <div>
+		<h2>Why Choose PayLess</h2>
+		<button onclick="togglePopup('why-popup')"></button>
+		<div id="why-popup" class="popup">
+			<p>There are many reasons to choose PayLess for your shopping needs:</p>
+	<ul>
+		<li>Save money: Our website helps you find the best deals, so you can save money on your purchases.</li>
+		<li>Easy to use: Our website is user-friendly and simple to navigate, so you can find what you're looking for quickly and easily.</li>
+		<li>Reliable: We only work with trusted retailers to ensure you get the best quality products at the best prices.</li>
+		<li>Free: PayLess is completely free to use, so you don't have to worry about any hidden fees or charges.</li>
+	</ul>
+		</div>
+	</div>
+
+    <div>
+		<h2>Contact Us</h2>
+		<button onclick="togglePopup('contactus-popup')"></button>
+		<div id="contactus-popup" class="popup">
+			<a href ="C:\Users\chefs\OneDrive\Desktop\BDA Project\BigDataArchitecture\Web\templates\contactus.html">Click here to go to the contact us Page</a>
+		</div>
+	</div>
+
+	<script>
+		function togglePopup(id) {
+			var popup = document.getElementById(id);
+			if (popup.classList.contains("show")) {
+				popup.classList.remove("show");
+			} else {
+				popup.classList.add("show");
+			}
+		}
+	</script>
+</body>
+</html>
