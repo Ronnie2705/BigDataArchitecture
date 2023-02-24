@@ -1,70 +1,83 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>PayLess - Home</title>
-    <style>
-      /* CSS for Navbar */
-      nav {
-        background-color: #4960a6;
-        overflow: hidden;
-      }
-      
-      nav a {
-        float: left;
-        color: #f6af84;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-        font-size: 17px;
-      }
-      
-      nav a:hover {
-        background-color: #ddd;
-        color: black;
-      }
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cdbootstrap/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cdbootstrap/css/cdb.min.css"/>
+  <title>Pay Less</title>
+</head>
+<body> 
+        <nav class="navbar fixed-top navbar-expand-lg   navbar-light" style=" background-color: rgba(0, 0, 1, 0.8)" >
+          <a class="navbar-brand" href="#"><img src="../images/logo-green.png" height="100" width="100" ></a>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="home.html" ><h5 style="color: #00FF7F; font-weight: bold; ">Home</h5> <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="about.html" ><h5 style="color:#00FF7F; font-weight: bold;">About</h5> <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"  href="contactus.html" ><h5 style="color:#00FF7F; font-weight: bold;">Contact Us</h5></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"  href="login.html" ><h5 style="color:#00FF7F; font-weight: bold;">Login</h5></a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <div style=" padding-top: 100px;">
+        <div class="grid-container">
 
-      /* CSS for Page Content */
-      .content {
-        padding: 50px;
-        text-align: center;
-      }
+          <div class="grid-child" style="height: 500px; background-color: rgba(0, 0, 1, 0.8); align-content: center;">
+            <center style="padding: 80px;">
+              Set the
+            <div>
+              <h5 style="color: yellow; "><b>Set  &emsp; The</b> &emsp; <b class="animated flash infinite" style="font-family: 'Brush Script MT'; color: yellow; font-size: 50px;">Fashion</b></h5>
+            </div>
+            <div>
+              <h5 style="color: #00FF7F; "><b>Be  &emsp; The</b> &emsp; <b class="animated flash infinite" style="font-family: 'Brush Script MT'; color: #00FF7F; font-size: 50px;">Brand</b></h5>
+            </div>
+            <div>
+              <h5 style="color: hotpink; "><b>Show  &emsp; The</b> &emsp; <b class="animated flash infinite" style="font-family: 'Brush Script MT'; color: hotpink; font-size: 50px;">Style</Style></Style></b></h5>
+            </div>
+          </center>
+          </div>
       
-      h1 {
-        font-size: 50px;
-        color: black  ;
-      }
-      
-      p {
-        font-size: 24px;
-        color: black  ;
-      }
+          <div class="grid-child" style="height: 500px; background-color: rgba(0, 0, 1, 0.8)">
+            <center>
+              <br>
+              <h4 style="color: #00FF7F; font-weight: bold;">Welcome to Pay Less Website</h4>
+              <br>
+              <h5 style="color: #ffffff; padding-left: 10px; padding-right: 10px;">A place for <b style="color: yellow;font-size: larger;">Fashion</b>, <b style="color: #00FF7F; font-size: larger;">Brand</b> and <b style="color:hotpink;font-size: larger;">Style</b>
+              <br><br>
+              Compare the prices in one click and get your products for the lowest price. 
+              <br><br>
+              <b style="color:ghostwhite;">What are you waiting for! <br>Click Sign In</b>
+              <br><br>
+              <button type="submit" class="btn btn-primary" style="background-color: 00FF7F; color: black;  font-family: 'Century Gothic'; font-weight: bold; align-content: center;">Sign In</button>
+              <br><br>
+              <b style="color:ghostwhite;">New to Pay Less? <br> Then Sing up!</b>
+              <br><br>
+              <button type="submit" class="btn btn-primary" style="background-color: 00FF7F; color: black;  font-family: 'Century Gothic'; font-weight: bold; align-content: center;" onclick="window.location.href='./signup.html'">Sign Up</button>
+              <br><br>
+            </h5>
+              <br>
+            </center>
+          </div>
+          <div class="grid-child" style="height: 500px; background-color: rgba(0, 0, 1, 0.8)">
+            <center style="padding: 50px;">
+            <div class="animated bounce infinite">
+              <img src="../images/bigdeal.png" alt="" style="width: 300px;height:300px;" />
+            </div>
+          </center>
+          </div>
 
-      img{
-        width: 100px;
-        align-self: center;
-        height: 100px;
-        border-radius: 20px 20px;
-      }
-    </style>
-  </head>
-  
-  <body>
-    <!-- Navbar -->
-    <nav>
-      <a href="#">Home</a>
-      <a href="C:\Users\chefs\OneDrive\Desktop\BDA Project\home\about.html">About</a>
-      <a href="#">Contact Us</a>
-      <a href="#">Sign In</a>
-      <a href="#">Sign Up</a>
-    </nav>
-    
-    
-    <!-- Page Content -->
-    <div class="content">
-      <img src="C:\Users\chefs\OneDrive\Desktop\PayLess-logos.jpeg" alt="Logo">
-      <h1>Welcome to PriceLess!</h1>
-      <p>We offer services that are truly PRICELESS. Come and see for yourself!</p>
-    </div>
 
-  </body>
+        </div>
+      </div>
+</body>
 </html>

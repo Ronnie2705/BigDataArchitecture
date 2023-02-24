@@ -18,10 +18,19 @@ body {
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: 100% 100%;
-        backdrop-filter: blur(5px);
+        backdrop-filter: blur(4px);
         
     }
 
-form,h6,h5{
+form,h4,h6,h5{
     font-family: 'Century Gothic';
+}
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
 }
