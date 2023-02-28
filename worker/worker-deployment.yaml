@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: worker-deployment
+spec:
+  replicas: 1
+  # The .spec.selector field defines how the Deployment finds which Pods to manage.
+  # In this case, you simply select a label that is defined in the Pod template (app: blog).
+  # However, more sophisticated selection rules are possible,
+  # as long as the Pod template itself satisfies the rule.
+  selector:
+    matchLabels:
+      app: worker
+  template:
+    metadata:
+      labels:
+        app: worker
+    spec:
+      containers:
+      - name: worker
+        image: bhawneet1034/bigdata-worker:v1
+        ports:
+        - containerPort: 5000
+        env:
+          - name: MYSQL_HOST
+            value: mysql
+          - name : REDIS_HOST
+            value : redis
+          - name : REDIS_PORT
+            value : "6379"
+        volumeMounts:
+        - mountPath: /cache
+          name: cache-volume
+      volumes:
+        - name: cache-volume
+          emptyDir: {}

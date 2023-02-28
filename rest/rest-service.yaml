@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: rest-svc
+  labels:
+   app: rest
+spec:
+  selector:
+    app: rest
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000
