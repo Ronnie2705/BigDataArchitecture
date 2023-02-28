@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: logs
-        image: bhawneet1034/spotify-logs:v1
+        image: bhawneet1034/bigdata-logs:v1
         resources:
           requests:
             cpu: 100m
