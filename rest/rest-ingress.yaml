@@ -1,0 +1,34 @@
+#
+# See https://kubernetes.io/docs/concepts/services-networking/ingress/
+#
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: frontend-ingress
+  annotations:
+    # use the shared ingress-nginx
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/proxy-body-size: 16m
+
+spec:
+  rules:
+  - host: localhost
+    http:
+      paths:
+      #
+      # Specify the path using a regular expression. The first regex handle
+      # the prefix (/blog or /blog/) while the second matches whatever
+      # comes after the prefix (e.g. it would match foo in /blog/foo).
+      # That second regex group is what is sent to the blog (see above)
+      #
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: rest-svc
+            port:
+              number: 5000
+
+#
+# Your ingress rules here
+#
