@@ -14,7 +14,7 @@ build:
 # hub.docker.io
 #
 push:
-	docker tag logs  $(DOCKERUSER)/spotify-logs:$(VERSION)
-	docker push $(DOCKERUSER)/spotify-logs:$(VERSION)
-	docker tag logs  $(DOCKERUSER)/spotify-logs:latest
-	docker push $(DOCKERUSER)/spotify-logs:latest
+	docker tag logs  $(DOCKERUSER)/bigdata-logs:$(VERSION)
+	docker push $(DOCKERUSER)/bigdata-logs:$(VERSION)
+	docker tag logs  $(DOCKERUSER)/bigdata-logs:latest
+	docker push $(DOCKERUSER)/bigdata-logs:latest
