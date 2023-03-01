@@ -6,16 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cdbootstrap/css/bootstrap.min.css"/>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cdbootstrap/css/cdb.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cdbootstrap/css/cdb.min.css"/>
+    <link rel="stylesheet" href="/Users/suhailalkaabi/BigDataArchitecture/Web/css/style.css"/>
     <title>PayLess- Contact Us</title>
 </head>
 <body>
     <style>
+
+        body{
+            color: white;
+        }
+
         .contact {
-  background-color: #f9f9f9;
-  padding: 60px 0;
-  text-align: center;
-}
+            background-color: transparent;
+            padding: 60px 0;
+            text-align: center;
+            }
+
 
 .contact h2 {
   font-size: 32px;
@@ -195,9 +202,10 @@ button[type="submit"]:hover {
     </form>
   </section>
 
+  <button id="show-faqs-btn">Click here for more info</button>
 
-  <section class="faqs">
-    <h2>Frequently Asked Questions</h2>
+  <h2>Frequently Asked Questions</h2>
+  <div class="faqs">
     <div class="faq-item">
       <h3>How do I search for products on PayLess?</h3>
       <div class="answer">
@@ -222,10 +230,14 @@ button[type="submit"]:hover {
         <p>Yes, our website is completely free to use.</p>
       </div>
     </div>
-  </section>
+</div>
 
-  <section class="privacy-policy">
-    <h2>Privacy Policy</h2>
+  <button id="show-privacy-policy-btn">Click here for more info</button>
+
+
+  <h2>Privacy Policy</h2>
+
+  <div class="privacy-policy">
     <p>At PayLess, we take the privacy of our users very seriously. This Privacy Policy explains how we collect, use, and protect your personal information when you use our website.</p>
   
     <h3>Information We Collect</h3>
@@ -250,7 +262,33 @@ button[type="submit"]:hover {
   
     <h3>Sharing Your Information</h3>
     <p>We do not sell, trade, or rent your personal information to third parties for their marketing purposes. We may share your personal information with third-party service providers who perform services on our behalf, such as hosting, data analytics, and marketing. We require these service providers to only use your personal information in accordance with our instructions and applicable laws.</p>
-  </section>
+  </div>
+  <!-- <section class="privacy-policy">
+    <p>At PayLess, we take the privacy of our users very seriously. This Privacy Policy explains how we collect, use, and protect your personal information when you use our website.</p>
+  
+    <h3>Information We Collect</h3>
+    <p>We collect the following types of personal information when you use our website:</p>
+    <ul>
+      <li>Information you provide to us: When you create an account, submit a contact form, or participate in surveys or promotions, we may collect your name, email address, and other contact information.</li>
+      <li>Information we collect automatically: When you use our website, we may automatically collect information about your device, including your IP address, browser type, and operating system. We may also collect information about your usage of our website, such as the pages you visit and the actions you take.</li>
+    </ul>
+  
+    <h3>How We Use Your Information</h3>
+    <p>We use your personal information for the following purposes:</p>
+    <ul>
+      <li>To provide you with the services and features of our website.</li>
+      <li>To communicate with you about your account and any inquiries or issues you have.</li>
+      <li>To personalize your experience on our website.</li>
+      <li>To improve our website and the services we offer.</li>
+      <li>To send you promotional and marketing communications, where permitted by law.</li>
+    </ul>
+  
+    <h3>How We Protect Your Information</h3>
+    <p>We take appropriate technical and organizational measures to protect your personal information from unauthorized access, use, disclosure, and destruction. We also require our third-party service providers to implement similar measures.</p>
+  
+    <h3>Sharing Your Information</h3>
+    <p>We do not sell, trade, or rent your personal information to third parties for their marketing purposes. We may share your personal information with third-party service providers who perform services on our behalf, such as hosting, data analytics, and marketing. We require these service providers to only use your personal information in accordance with our instructions and applicable laws.</p>
+  </section> -->
   
   
 
@@ -279,7 +317,20 @@ button[type="submit"]:hover {
     </div>
   </section>
 
-  
+  <script>
+    const showFaqsBtn = document.getElementById('show-faqs-btn');
+    const showPrivacyPolicyBtn = document.getElementById('show-privacy-policy-btn');
+    const faqsSection = document.getElementById('faqs');
+    const privacyPolicySection = document.getElementById('privacy-policy');
+
+    showFaqsBtn.addEventListener('click', function() {
+    faqsSection.style.display = 'block';
+    });
+
+    showPrivacyPolicyBtn.addEventListener('click', function() {
+    privacyPolicySection.style.display = 'block';
+    });
+  </script>
   
 </body>
 </html>
