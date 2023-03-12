@@ -22,12 +22,12 @@ spec:
         ports:
         - containerPort: 5000
         env:
-          - name: MYSQL_HOST
-            value: mysql
           - name : REDIS_HOST
             value : redis
           - name : REDIS_PORT
             value : "6379"
+          - name: RABBITMQ_HOST
+            value: rabbitmq
         volumeMounts:
         - mountPath: /cache
           name: cache-volume

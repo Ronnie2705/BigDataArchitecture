@@ -1,6 +1,6 @@
 FROM python:3.6-alpine
 
-RUN  pip3 install --upgrade redis jsonpickle requests flask pymongo
+RUN  pip3 install --upgrade redis jsonpickle requests flask Flask-PyMongo pymongo pika 
 
 ENV PYTHONUNBUFFERED=1
 ENV PYTHONIOENCODING=UTF-8
