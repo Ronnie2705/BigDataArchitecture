@@ -72,6 +72,15 @@ form,h4,h6,h5{
   padding-right: 250px;
 }
 
+<<<<<<< HEAD
+.category-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+=======
 
 /* About Page */
 p, ul, li{
@@ -220,3 +229,4 @@ button[type="submit"]:hover {
 .link a:hover {
   text-decoration: underline;
 }          
+>>>>>>> 6fdaab8c371d0828a83c89e67c74732d10bcd71a
