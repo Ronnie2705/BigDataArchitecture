@@ -1,3 +1,6 @@
+*{
+  font-family: 'Century Gothic';
+}
 .center
 {
   position: absolute;
@@ -69,6 +72,7 @@ form,h4,h6,h5{
   padding-right: 250px;
 }
 
+<<<<<<< HEAD
 .category-grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -76,3 +80,153 @@ form,h4,h6,h5{
   padding-left: 50px;
   padding-right: 50px;
 }
+=======
+
+/* About Page */
+p, ul, li{
+  font-size: 24px;
+  font-family:'Century Gothic';
+  color: #ffffff;
+  text-align: center;
+}
+h2{
+  font-size: 36px;
+  font-family:'Century Gothic';
+  color: #ffffff;
+  text-align: center;
+}
+
+h3{
+  font-size: 48px;
+  font-family: 'Century Gothic';
+  font-weight: bolder;
+  color: #E55982;
+  text-align: center;
+}
+.collapsible {
+  background-color: rgba(0, 0, 1, 0.8);
+  color: #ffffff;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 24px;
+  border-radius: 50px;
+  font-family: 'Century Gothic';
+}
+
+.active, .collapsible:hover {
+  background-color: #72b8898f;
+}
+
+.popup {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
+}
+.popup.open {
+  max-height: 1000px; /* Adjust this value to suit your needs */
+}          
+.popup.active {
+  max-height: 100vh;
+}
+
+
+button{
+  font-family: 'Century Gothic';
+}
+
+/* Login Page*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Century Gothic';
+}
+
+body {
+  background-color: #F5F5F5;
+}
+
+.container {
+  width: 400px;
+  margin: 50px auto;
+  background-color: #FFFFFF;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  text-align: center;
+  padding: 30px;
+}
+
+h1 {
+  font-size: 36px;
+  margin-bottom: 30px;
+  color: #333333;
+  font-family: 'Century Gothic';
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Century Gothic';
+}
+
+.input-field {
+  margin-bottom: 20px;
+}
+
+input[type="text"], input[type="password"] {
+  border: none;
+  border-bottom: 2px solid #333333;
+  padding: 10px;
+  font-size: 16px;
+  width: 100%;
+  background-color: transparent;
+  transition: border-bottom-color 0.3s;
+  color: #333;
+  font-family: 'Century Gothic';
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+  outline: none;
+  border-bottom-color: #00FF7F;
+}
+
+input[type="password"]:focus ~ input[type="text"], input[type="text"]:focus ~ input[type="password"] {
+  border-bottom-color: #333333;
+}
+
+button[type="submit"] {
+  background-color: #4960a6;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: #007FFF;
+}
+
+.link {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  color: #666666;
+  font-size: 14px;
+}
+
+.link a {
+  color: #4960a6;
+  text-decoration: none;
+}
+
+.link a:hover {
+  text-decoration: underline;
+}          
+>>>>>>> 6fdaab8c371d0828a83c89e67c74732d10bcd71a
