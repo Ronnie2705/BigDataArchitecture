@@ -68,3 +68,11 @@ form,h4,h6,h5{
   padding-left: 250px;
   padding-right: 250px;
 }
+
+.category-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
