@@ -11,130 +11,41 @@
     <title>Login Page</title>
   </head>
   <body>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: sans-serif;
-          }
-          
-          body {
-            background-color: #F5F5F5;
-          }
-          
-          .container {
-            width: 400px;
-            margin: 50px auto;
-            background-color: #FFFFFF;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-            text-align: center;
-            padding: 30px;
-          }
-          
-          h1 {
-            font-size: 36px;
-            margin-bottom: 30px;
-            color: #333333;
-          }
-          
-          form {
-            display: flex;
-            flex-direction: column;
-          }
-          
-          .input-field {
-            margin-bottom: 20px;
-          }
-          
-          input[type="text"], input[type="password"] {
-            border: none;
-            border-bottom: 2px solid #333333;
-            padding: 10px;
-            font-size: 16px;
-            width: 100%;
-            background-color: transparent;
-            transition: border-bottom-color 0.3s;
-            color: #333;
-          }
-          
-          input[type="text"]:focus, input[type="password"]:focus {
-            outline: none;
-            border-bottom-color: #00FF7F;
-          }
-          
-          input[type="password"]:focus ~ input[type="text"], input[type="text"]:focus ~ input[type="password"] {
-            border-bottom-color: #333333;
-          }
-          
-          button[type="submit"] {
-            background-color: #4960a6;
-            color: #FFFFFF;
-            border: none;
-            border-radius: 5px;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-          }
-          
-          button[type="submit"]:hover {
-            background-color: #007FFF;
-          }
-          
-          .link {
-            margin-top: 20px;
-            display: flex;
-            justify-content: space-between;
-            color: #666666;
-            font-size: 14px;
-          }
-          
-          .link a {
-            color: #4960a6;
-            text-decoration: none;
-          }
-          
-          .link a:hover {
-            text-decoration: underline;
-          }          
-    </style>
+    
     <!-- Navbar -->
     <nav class="navbar fixed-top navbar-expand-lg   navbar-light" style=" background-color: rgba(0, 0, 1, 0.8)" >
       <a class="navbar-brand" href="#"><img src="../images/logo-green.png" height="100" width="100" ></a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="home.html" ><h5 style="color: #00FF7F; font-weight: bold; ">Home</h5> <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="home.html" ><h5 style="color: #00FF7F; font-weight: bold; ">Home</h5></a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="about.html" ><h5 style="color:#00FF7F; font-weight: bold;">About</h5> <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="about.html" ><h5 style="color:#00FF7F; font-weight: bold;">About</h5></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link"  href="contactus.html" ><h5 style="color:#00FF7F; font-weight: bold;">Contact Us</h5></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link"  href="login.html" ><h5 style="color:#00FF7F; font-weight: bold;">Login</h5></a>
+            <a class="nav-link"  href="login.html" ><h5 style="color:#00FF7F; font-weight: bold;">Login</h5><span class="sr-only">(current)</span></a>
           </li>
         </ul>
       </div>
     </nav>
-    <div class="container">
-      <h1>Welcome Back!</h1>
-      <form>
-        <div class="input-field">
-          <input type="text" placeholder="Email" required style="border: none; border-bottom: 2px solid #00FF7F; margin-bottom: 20px;">
-        </div>
-        <div class="input-field">
-          <input type="password" placeholder="Password" required style="border: none; border-bottom: 2px solid #00FF7F; margin-bottom: 20px;">
-        </div>
-        <button type="submit" style="background-color: #00FF7F; color: white; border: none; padding: 10px 20px; border-radius: 5px;">Login</button>
-      </form>
-      <div class="link" style="margin-top: 20px;">
-        <a href="#" style="color: #00FF7F;">Forgot Password?</a>
-        <a href="#" style="color: #00FF7F; margin-left: 20px;">Create an Account</a>
+    <div style="padding-top: 750px;">
+      <div class="center" style="height: 250px; width: 800px; background-color: rgba(0, 0, 1, 0.8)">
+        <center>
+          <br>
+          <h4 style="color: #00FF7F; font-weight: bold;">Pay Less Login</h4>
+          <br>
+          <form style="height: 80%; width: 80%; opacity: 0.9;">
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Username" >
+              <br>
+              <input type="password" class="form-control" placeholder="Password">
+              <br>
+              <button type="submit" class="btn btn-primary" style="background-color: #00FF7F; color: black; font-family: 'Century Gothic'; font-weight: bold;">Log In</button>
+            </div>
+          </form>
+        </center>
       </div>
-    </div>
+    </div>    
   </body>
 </html>
