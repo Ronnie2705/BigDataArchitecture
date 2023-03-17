@@ -1,16 +1,19 @@
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cdbootstrap/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cdbootstrap/css/cdb.min.css"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='../css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cdbootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cdbootstrap/css/cdb.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/cdbootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/cdbootstrap/js/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/cdbootstrap/js/cdb.min.js"></script>
     <title>Registration</title>
 </head>
+
 <body> 
   <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top" style=" background-color: rgba(0, 0, 1, 0.8)">
@@ -54,8 +57,6 @@
       </div>
     </nav>
   </header>
-
-
   <div style=" padding-top: 200px; padding-bottom: 200px;">
     <div class="grid-single-container">
       <center>
@@ -64,28 +65,77 @@
           <br>
           <h4 style="color: #00FF7F; font-weight: bold;">Registration</h4>
           <br>
-          <form style=" height: 80%; width: 80%; opacity: 0.9 ; ">
+          
+          <!--
+          <form action="/signup" method="post" style=" height: 80%; width: 80%; opacity: 0.9 ; ">
             <div class="col">
               <div class="row">
                 <div class="col">
-                  <input type="text" class="form-control" placeholder="First name">
+                  <input type="text" class="form-control" placeholder="First name" id ="firstname">
                 </div>
                 <div class="col">
-                  <input type="text" class="form-control" placeholder="Last name">
+                  <input type="text" class="form-control" placeholder="Last name" id = "lastname">
                 </div>
               </div>
               <br>
-              <input type="text" class="form-control" placeholder="Email">
+              <input type="text" class="form-control" placeholder="Email" id = "email">
               <br>
-              <input type="text" class="form-control" placeholder="Phone Number">
+              <input type="text" class="form-control" placeholder="Phone Number" id ="phone">
               <br>
-              <input type="text" class="form-control" placeholder="Password">
+              <input type="text" class="form-control" placeholder="Password" id = "password">
               <br>
-              <input type="text" class="form-control" placeholder="Confirm Password">
+              <input type="text" class="form-control" placeholder="Confirm Password" id="confirmpassowrd">
               <br>
-              <button type="submit" class="btn btn-primary" style="background-color: 00FF7F; color: black;  font-family: 'Century Gothic'; font-weight: bold; ">Submit</button>
+              <button type="submit" value = "Submit" class="btn btn-primary" style="background-color: 00FF7F; color: black;  font-family: 'Century Gothic'; font-weight: bold; ">Submit</button>
             </div>
           </form>
+         -->
+         <!--
+          <form action="/signup" method="post">
+            <label for="firstname">firstname:</label>
+            <input type="text" id="firstname" name="firstname"><br><br>
+            <label for="lastname">lastname:</label>
+            <input type="text" id="lastname" name="lastname"><br><br>
+            <label for="email">email:</label>
+            <input type="text" id="email" name="email"><br><br>
+            <label for="phone">phone:</label>
+            <input type="text" id="phone" name="phone"><br><br>
+            <label for="password">password:</label>
+            <input type="text" id="password" name="password"><br><br>
+            <input type="text" id="confirmpassword" name="confirmpassword"><br><br>
+            <input type="submit" value="Submit">
+          </form>
+        -->
+        <form action="/signup" method="post" style=" height: 80%; width: 80%; opacity: 0.9 ; ">
+          <div class="col">
+            <div class="row">
+              <div class="col">
+                <label for="firstname">firstname:</label>
+                <input type="text" id="firstname" name="firstname">
+              </div>
+              <div class="col">
+                <label for="lastname">lastname:</label>
+                <input type="text" id="lastname" name="lastname">
+              </div> 
+            <div class="row">
+            <br>
+            <div class="row"></div>
+              <label for="email">email:</label>
+              <input type="text" id="email" name="email"><br><br>
+            </div>
+            <div class="row">
+              <label for="phone">phone:</label>
+              <input type="text" id="phone" name="phone"><br><br>
+            </div>
+            <div class="row">
+              <label for="password">password:</label>
+              <input type="text" id="password" name="password"><br><br>
+            </div>
+            <div class="row">
+              <input type="text" id="confirmpassword" name="confirmpassword"><br><br>
+              <input type="submit" value="Submit">
+            </div>
+        </form>
       </div>
         </center>
       </div>
@@ -106,6 +156,6 @@
           </div>
         </footer>
         
-      
+          
 </body>
 </html>

@@ -14,7 +14,7 @@ app = Flask(__name__)
 @app.route('/')
 def welcome():
     #return render_template('main.html')
-    return render_template('signup1.html')
+    return render_template('signup.html')
 '''
 @app.route('/signup')
 def signup():
@@ -33,8 +33,8 @@ def about():
     return render_template('about.html')
 '''
 #@app.route("/signup1", methods=["GET", "POST"])
-@app.route("/signup1", methods=["GET","POST"])
-def signup1():
+@app.route("/signup", methods=["GET","POST"])
+def signup():
     if request.method == "POST":
         # Get user input from the form
         FirstName = request.form["firstname"]
@@ -43,14 +43,15 @@ def signup1():
         email = request.form["email"]
         phone = request.form["phone"]
         password = request.form["password"]
+        confirmpassword = request.form["confirmpassword"]
         # Insert user data into the database
-        user_data = {"firstname": FirstName, "lastname": LastName, "email": email, "password": password, "phone": phone}
+        user_data = {"firstname": FirstName, "lastname": LastName, "email": email, "password": password, "phone": phone, "confirmpassword": confirmpassword}
         print(user_data)
         users_collection.insert_one(user_data)
         print(user_data)
         # Redirect to the main page
         #return redirect(url_for("signup1"))
-        return render_template("signup1.html")
+        return render_template("signup.html")
         #return 'User signed up successfully!'
 
 '''
