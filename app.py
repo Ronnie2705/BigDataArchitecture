@@ -13,8 +13,8 @@ app = Flask(__name__)
 # Define routes for landing pages
 @app.route('/')
 def welcome():
-    #return render_template('main.html')
-    return render_template('signup.html')
+    return render_template('main.html')
+    #return render_template('login.html')
 '''
 @app.route('/signup')
 def signup():
@@ -51,26 +51,27 @@ def signup():
         print(user_data)
         # Redirect to the main page
         #return redirect(url_for("signup1"))
-        return render_template("signup.html")
+        return render_template("main.html")
         #return 'User signed up successfully!'
+    else: return render_template('signup.html')
 
-'''
-@app.route('/signin', methods=['POST'])
-def signin():
+
+@app.route('/login', methods=["GET","POST"])
+def login():
     # Get user data from request body
-    data = request.json
-    username = data.get('username')
-    password = data.get('password')
-
-    # Find user in database
-    user = users_collection.find_one({'username': username})
-
-    # Check if user exists and password is correct
-    if user and check_password_hash(user['password'], password):
-        return jsonify({'message': 'Login successful'}), 200
-
-    return jsonify({'error': 'Invalid credentials'}), 401
-'''
+    if request.method == 'POST':
+        email = request.form["email"]
+        password = request.form["password"]
+        # Find user in database
+        user = users_collection.find({"email": email, "passowrd":password})
+        print(user)
+        # Check if user exists and password is correct
+        if user:
+            return 'Logged in successfully!'
+        else:
+            return 'Invalid credentials. Please try again.'
+    else:
+        return render_template('login.html')
 # Run the Flask app
 if __name__ == '__main__':
     app.run()

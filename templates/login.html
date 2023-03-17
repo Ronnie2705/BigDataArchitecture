@@ -62,16 +62,15 @@
       <div class="center" style="height: 250px; width: 800px; background-color: rgba(0, 0, 1, 0.8)">
         <center>
           <br>
-          <h4 style="color: #00FF7F; font-weight: bold;">Pay Less Login</h4>
+          <h4 style="color: #00FF7F; font-weight: bold;">Beyond Price Login</h4>
           <br>
-          <form style="height: 80%; width: 80%; opacity: 0.9;">
-            <div class="col">
-              <input type="text" class="form-control" placeholder="Username" >
-              <br>
-              <input type="password" class="form-control" placeholder="Password">
-              <br>
-              <button type="submit" class="btn btn-primary" style="background-color: #00FF7F; color: black; font-family: 'Century Gothic'; font-weight: bold;">Log In</button>
-            </div>
+          <h1>login Form</h1>
+          <form action="/login" method="post" style=" height: 80%; width: 80%; opacity: 0.9 ; ">
+            <label for="email">email:</label>
+            <input type="text" id="email" name="email"><br><br>
+            <label for="password">password:</label>
+            <input type="text" id="password" name="password"><br><br>
+            <input type="submit" value="Submit">
           </form>
         </center>
       </div>
