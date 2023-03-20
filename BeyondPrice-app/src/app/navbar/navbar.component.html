@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top " style=" background-color: rgba(0, 0, 1, 0.8)">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="./home.html"><img src="{{logoURL}}" height="50" width="100" ></a>
+       <!-- Toggle button -->
+    <button
+    class="navbar-toggler"
+    type="button"
+    (click)="rightAligned.toggle()"
+    aria-controls="navbarRightAlignExample"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <!-- Collapsible wrapper -->
+  <div
+    class="collapse navbar-collapse"
+    id="navbarRightAlignExample"
+    mdbCollapse
+    #rightAligned="mdbCollapse"
+  >
+    <!-- Left links -->
+    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="#" style="color: #00FF7F; font-weight: bold; ">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="#" style="color: #00FF7F; font-weight: bold; ">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="#" style="color: #00FF7F; font-weight: bold; ">Login</a>
+      </li>
+    </ul>
+    <!-- Left links -->
+  </div>
+  <!-- Collapsible wrapper --> 
+    </div>
+  </nav>
