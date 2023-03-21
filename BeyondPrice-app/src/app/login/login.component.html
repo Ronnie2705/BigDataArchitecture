@@ -1,8 +1,28 @@
 <app-navbar></app-navbar>
+
+
 <div class="pd">
-<div class="form-outline" >
-    <input type="password" id="typePassword" class="form-control" />
-    <label class="form-label" for="typePassword">Password input</label>
-  </div>
+    <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <form>
+              <p class="h4 text-center mb-4">Beyond Price Login</p>
+              <div class="form-group">
+                <input type="text" id="username" class="form-control" placeholder = "Username" required>
+              </div>
+              <br>
+              <div class="form-group">
+                <input type="password" id="password" class="form-control" placeholder = "Password" required>
+              </div>
+              <br>
+              <div class="text-center">
+                <button type="submit" class="btn btn-primary">Login</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- MDBootstrap JS -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js" integrity="sha512-9aFpVEkxjK8ZvzKJLDjUhPpBwH7B+1GMG0ki9sMKsZJxms7OedkLsGtJH/4C/kKwI4b2Y4Y1DGXb1cKVDxckSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </div>
 <app-footer></app-footer>
