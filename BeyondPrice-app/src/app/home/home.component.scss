@@ -1,11 +1,16 @@
-.card{
-    background-color: rgba(0, 0, 1, 0.8)
-    
+.card-body{
+    display: flex;
+    // background-color: rgba(0, 0, 1, 0.8);
+    height: 550px;
+    justify-content: center;
+    align-items: center;
 }
 .row{
     padding: 100px;
     width: 100%;
 }
-.card-body{
-    height: 300px;
+
+.card{
+    background-color: rgba(0, 0, 1, 0.8);
 }
+
