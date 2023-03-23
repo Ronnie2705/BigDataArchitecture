@@ -1,95 +1,89 @@
 <app-navbar></app-navbar>
 
-<div>
-    <button class="collapsible" (click)="togglePopup('about-popup')">About PayLess</button>
-    <div id="about-popup" class="popup" *ngIf="aboutPopupVisible">
-      <p>Welcome to PayLess, the website that helps you find the best deals by comparing prices of two items side by side. Our goal is to make shopping easier and more affordable for everyone, so you can save money on the things you love.</p>
-    </div>
+  <!-- About Beyond Price -->
+  <button class="collapsible" (click)="togglePopup('about')">About Beyond Price</button>
+  <div id="about-container" *ngIf="show.about" class="popup">
+    <p class="about-text">Welcome to Beyond Price, the website that helps you find the best deals by comparing prices of two items side by side. Our goal is to make shopping easier and more affordable for everyone, so you can save money on the things you love.</p>
   </div>
 <br>
-  <div>
-    <button class= "collapsible" (click)="togglePopup1('how-it-works-popup')">How it Works</button>
-    <div id="how-it-works-popup" class="popup" *ngIf="aboutPopupVisible">
-        <p>It's easy to use PayLess! Simply select two items you're interested in and we'll display the prices from different retailers. You can then compare the prices and choose the best deal for you. It's that simple!</p>
+<br>
+  <!-- How It Works -->
+    <button class= "collapsible" (click)="togglePopup1('howItWorks')">How it Works</button>
+    <div id="how-it-works-title" *ngIf="show.howItWorks" class="popup">
+    <p class="how-it-works-text">It's easy to use Beyond Price! Simply select two items you're interested in and we'll display the prices from different retailers. You can then compare the prices and choose the best deal for you. It's that simple!</p>
     </div>
-</div>
 <br>
-<div>
-    <button class="collapsible" (click)="togglePopup2('why-popup')">Why Choose PayLess</button>
-    <div id="why-popup" class="popup" *ngIf="aboutPopupVisible">
-        <p>There are many reasons to choose PayLess for your shopping needs:</p>
-<ul>
-    <li>Save money: Our website helps you find the best deals, so you can save money on your purchases.</li>
-    <li>Easy to use: Our website is user-friendly and simple to navigate, so you can find what you're looking for quickly and easily.</li>
-    <li>Reliable: We only work with trusted retailers to ensure you get the best quality products at the best prices.</li>
-    <li>Free: PayLess is completely free to use, so you don't have to worry about any hidden fees or charges.</li>
-</ul>
-    </div>
-</div>
 <br>
-<div>
-    
-    <button class="collapsible" (click)="togglePopup3('faqs-popup')">Frequently Asked Questions</button>
-    <div id="faqs-popup" class="popup" *ngIf="aboutPopupVisible">
-        <div class="faq-item">
-        <h3>How do I search for products on PayLess?</h3>
-        <div class="answer">
-            <p>On the homepage, enter the product you're looking for in the search bar and hit enter or click the search button. You can also browse through categories to find products.</p>
-        </div>
-        </div>
-        <div class="faq-item">
-        <h3>How do you find the cheapest prices?</h3>
-        <div class="answer">
-            <p>We use a combination of automated tools and human editors to find the lowest prices from various retailers. We do not favor any particular retailer, and our results are unbiased.</p>
-        </div>
-        </div>
-        <div class="faq-item">
-        <h3>How do I purchase a product?</h3>
-        <div class="answer">
-            <p>We do not sell products directly on our website. Instead, we provide links to the retailers where you can make a purchase. Simply click on the link to be redirected to the retailer's website.</p>
-        </div>
-        </div>
-        <div class="faq-item">
-        <h3>Is PayLess free to use?</h3>
-        <div class="answer">
-            <p>Yes, our website is completely free to use.</p>
-        </div>
-        </div>
-            </div>
-        </div>
-<br>
-    <div>
-        
-        <button class="collapsible" (click)="togglePopup4('privacy-policy-popup')">Privacy Policy</button>
-        <div id="privacy-policy-popup" class="popup" *ngIf="aboutPopupVisible">
-
-    <div class="privacy-policy">
-    <p>At PayLess, we take the privacy of our users very seriously. This Privacy Policy explains how we collect, use, and protect your personal information when you use our website.</p>
-
-    <h3>Information We Collect</h3>
-    <p>We collect the following types of personal information when you use our website:</p>
-    <ul>
-        <li>Information you provide to us: When you create an account, submit a contact form, or participate in surveys or promotions, we may collect your name, email address, and other contact information.</li>
-        <li>Information we collect automatically: When you use our website, we may automatically collect information about your device, including your IP address, browser type, and operating system. We may also collect information about your usage of our website, such as the pages you visit and the actions you take.</li>
+    <!-- Why Choose Beyond Price -->
+    <button class="collapsible" (click)="togglePopup2('why')">Why Choose Beyond Price</button>
+    <div id="why-choose-title" *ngIf="show.why" class="popup">
+        <p>There are many reasons to choose Beyond Price for your shopping needs:</p>
+    <ul class="why-choose-list">
+      <li class="why-choose-item"><strong>Save money:</strong> Our website helps you find the best deals, so you can save money on your purchases.</li>
+      <li class="why-choose-item"><strong>Easy to use:</strong> Our website is user-friendly and simple to navigate, so you can find what you're looking for quickly and easily.</li>
+      <li class="why-choose-item"><strong>Reliable:</strong> We only work with trusted retailers to ensure you get the best quality products at the best prices.</li>
+      <li class="why-choose-item"><strong>Free:</strong> Beyond Price is completely free to use, so you don't have to worry about any hidden fees or charges.</li>
     </ul>
-
-    <h3>How We Use Your Information</h3>
-    <p>We use your personal information for the following purposes:</p>
-    <ul>
-        <li>To provide you with the services and features of our website.</li>
-        <li>To communicate with you about your account and any inquiries or issues you have.</li>
-        <li>To personalize your experience on our website.</li>
-        <li>To improve our website and the services we offer.</li>
-        <li>To send you promotional and marketing communications, where permitted by law.</li>
-    </ul>
-
-    <h3>How We Protect Your Information</h3>
-    <p>We take appropriate technical and organizational measures to protect your personal information from unauthorized access, use, disclosure, and destruction. We also require our third-party service providers to implement similar measures.</p>
-
-    <h3>Sharing Your Information</h3>
-    <p>We do not sell, trade, or rent your personal information to third parties for their marketing purposes. We may share your personal information with third-party service providers who perform services on our behalf, such as hosting, data analytics, and marketing. We require these service providers to only use your personal information in accordance with our instructions and applicable laws.</p>
+    </div>
+<br>
+<br>
+    <!-- FAQS -->
+    <button class="collapsible" (click)="togglePopup3('faqs')">Frequently Asked Questions</button>
+    <div id="faq-title" *ngIf="show.faqs" class="popup">
+    <div class="faq-container">
+      <div class="faq-item">
+        <h3 class="faq-question">How do I search for products on Beyond Price?</h3>
+        <p class="faq-answer">On the homepage, enter the product you're looking for in the search bar and hit enter or click the search button. You can also browse through categories to find products.</p>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-question">How do you find the cheapest prices?</h3>
+        <p class="faq-answer">We use a combination of automated tools and human editors to find the lowest prices from various retailers. We do not favor any particular retailer, and our results are unbiased.</p>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-question">How do I purchase a product?</h3>
+        <p class="faq-answer">We do not sell products directly on our website. Instead, we provide links to the retailers where you can make a purchase. Simply click on the link to be redirected to the retailer's website.</p>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-question">Is Beyond Price free to use?</h3>
+        <p class="faq-answer">Yes, our website is completely free to use.</p>
+      </div>
     </div>
     </div>
-</div>
+
+<br>
+<br>
+    <!-- Privacy Policy -->
+    <button class="collapsible" (click)="togglePopup4('privacyPolicy')">Privacy Policy</button>
+    <div id="privacy-policy-title" *ngIf="show.privacyPolicy" class="popup">
+<div class="privacy-policy-container">
+  <p class="privacy-policy-text">At Beyond Price, we take the privacy of our users very seriously. This Privacy Policy explains how we collect, use, and protect your personal information when you use our website.</p>
+  <h3 class="privacy-policy-subtitle">Information We Collect</h3>
+  <p class="privacy-policy-text"><strong>We collect the following types of personal information when you use our website:</strong></p>
+  <ul class="privacy-policy-list">
+    <li class="privacy-policy-item"><strong>Information you provide to us: </strong><i>When you create an account, submit a contact form, or participate in surveys or promotions, we may collect your name, email address, and other contact information.</i></li>
+    <li class="privacy-policy-item"><strong>Information we collect automatically: </strong><i>When you use our website, we may automatically collect information about your device, including your IP address, browser type, and operating system. We may also collect information about your usage of our website, such as the pages you visit and the actions you take.</i></li>
+  </ul>
+  <h3 class="privacy-policy-subtitle">How We Use Your Information</h3>
+  <p class="privacy-policy-text"><strong>We may use your personal information to:</strong></p>
+  <ul class="privacy-policy-list">
+    <li class="privacy-policy-item"><i>Process your orders and payments</i></li>
+    <li class="privacy-policy-item"><i>Communicate with you about your orders and account</i></li>
+    <li class="privacy-policy-item"><i>Provide customer support</i></li>
+    <li class="privacy-policy-item"><i>Improve our website and services</i></li>
+    <li class="privacy-policy-item"><i>Send you promotional offers and marketing communications</i></li>
+  </ul>
+  <h3 class="privacy-policy-subtitle">How We Protect Your Information</h3>
+  <p class="privacy-policy-text">We take appropriate technical and organizational measures to protect your personal information from unauthorized access, use, disclosure, and destruction. We also require our third-party service providers to implement similar measures.</p>
+  <h3 class="privacy-policy-subtitle">How We Protect Your Information</h3>
+  <p class="privacy-policy-text">We take reasonable measures to protect your personal information from unauthorized access, use, or disclosure. We use encryption and other security measures to protect your sensitive information, such as your payment information.</p>
+  <h3 class="privacy-policy-subtitle">Your Choices</h3>
+  <p class="privacy-policy-text">You may choose to limit or opt-out of certain types of data processing, such as marketing communications. You may also access, update, or delete your personal information by contacting us.</p>
+  <h3 class="privacy-policy-subtitle">Third-Party Links</h3>
+  <p class="privacy-policy-text">Our website may contain links to third-party websites that are not owned or controlled by Beyond Price. We are not responsible for the privacy practices of these websites and encourage you to review their privacy policies.</p>
+  <h3 class="privacy-policy-subtitle">Changes to This Policy</h3>
+  <p class="privacy-policy-text">We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page. We recommend that you review this Privacy Policy periodically for any changes.</p>
+    </div>
+    </div>
+
 
 <app-footer></app-footer>
