@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: worker
-        image: bhawneet1034/bigdata-worker:v1
+        image: 97052212345/bigdata-worker:v1
         ports:
         - containerPort: 5000
         env:

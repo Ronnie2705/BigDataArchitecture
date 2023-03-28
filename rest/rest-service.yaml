@@ -5,9 +5,11 @@ metadata:
   labels:
    app: rest
 spec:
+  #type: NodePort
   selector:
     app: rest
   ports:
     - protocol: TCP
       port: 5000
       targetPort: 5000
+      #nodePort: 30001

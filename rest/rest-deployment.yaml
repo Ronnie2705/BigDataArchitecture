@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: rest
-        image: bhawneet1034/bigdata-rest:v1
+        image: 97052212345/bigdata-rest:v1
         ports:
         - containerPort: 5000
         env:
