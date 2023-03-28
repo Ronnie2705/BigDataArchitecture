@@ -66,6 +66,7 @@ import { AboutComponent } from './about/about.component';
       {path: 'about', component: AboutComponent},
       {path: 'login', component: LoginComponent},
       {path: 'signup', component: SignupComponent},
+      { path: '',component: HomeComponent},
     ]),
   ],
   providers: [],
