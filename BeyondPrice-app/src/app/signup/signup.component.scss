@@ -1,0 +1,28 @@
+
+.col{
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.placecenter{
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.card{
+    background-color: rgba(0, 0, 1, 0.8);
+}
+
+
+mdb-form-control{
+    background-color: #A9A9A9;
+}
+
+form {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    font-family: 'Century Gothic';
+  }

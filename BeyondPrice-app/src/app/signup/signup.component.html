@@ -1,0 +1,87 @@
+<app-navbar></app-navbar>
+<div class="pd">
+    <div class="row placecenter">
+        <div class="col-md-4">
+            <div class="card" >
+                <div class="card-body">
+                    <div class="card-text">
+                        <form [formGroup]="validationForm" (ngSubmit)="onSubmit()">
+                            <div class="col placecenter">
+                                <h4 style="color: #00FF7F; font-weight: bold;">Registration</h4>
+                                <br>
+                                        <mdb-form-control>
+                                            <input
+                                                mdbValidate
+                                                mdbInput
+                                                type="text"
+                                                id="firstName"
+                                                class="form-control"
+                                                formControlName="firstName"
+                                                required>
+                                  <label mdbLabel class="form-label" for="firstName">First name</label>
+                                  <mdb-error
+                                    *ngIf="
+                                    firstName?.invalid && (firstName?.dirty || firstName?.touched)
+                                    "
+                                    >First name is required</mdb-error
+                                  >
+                                  <mdb-success
+                                    *ngIf="
+                                    firstName?.valid && (firstName?.dirty || firstName?.touched)
+                                    "
+                                    >Looks good!</mdb-success
+                                  >
+                                </mdb-form-control>
+                                <br>
+                                <mdb-form-control>
+                                  <input
+                                    mdbValidate
+                                    mdbInput
+                                    type="text"
+                                    id="lastName"
+                                    class="form-control"
+                                    formControlName="lastName"
+                                    required
+                                  />
+                                  <label mdbLabel class="form-label" for="lastName">Last name</label>
+                                  <mdb-error *ngIf="lastName?.invalid && (lastName?.dirty || lastName?.touched)"
+                                    >Last name is required</mdb-error
+                                  >
+                                  <mdb-success *ngIf="lastName?.valid && (lastName?.dirty || lastName?.touched)"
+                                    >Looks good!</mdb-success
+                                  >
+                                </mdb-form-control>
+                                <br>
+                                <mdb-form-control>
+                                  <input
+                                    mdbValidate mdbInput type="email" id="email" class="form-control" formControlName="email" required
+                                  />
+                                  <label mdbLabel class="form-label" for="email">Email</label>
+                                </mdb-form-control>
+                              <br>
+                                <mdb-form-control>
+                                  <input  mdbValidate mdbInput type="tel" id="phone" class="form-control" required />
+                                  <label mdbLabel class="form-label" for="phone">Phone</label>
+                              </mdb-form-control>
+                              <br>
+                                <mdb-form-control>
+                                    <input  mdbValidate mdbInput type="password" id="userPassword" class="form-control" required />
+                                    <label mdbLabel class="form-label" for="userPassword">Password input</label>
+                                </mdb-form-control>
+                                <br>
+                                <mdb-form-control>
+                                  <input mdbValidate  mdbInput type="password" id="confirmPassword" class="form-control" required/>
+                                  <label mdbLabel class="form-label" for="confirmPassword">Confirm Password</label>
+                                </mdb-form-control>
+                              <button type="submit" class="btn btn-primary mt-4" style="background-color: #00FF7F; color: black;">Submit</button>
+                        </div> 
+                            
+                            
+                          </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
