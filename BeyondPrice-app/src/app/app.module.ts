@@ -31,6 +31,7 @@ import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { AboutComponent } from './about/about.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { AboutComponent } from './about/about.component';
     MdbTooltipModule,
     MdbValidationModule,
     ReactiveFormsModule,
+    HttpClientModule,
     RouterModule.forRoot([
       {path: 'home', component: HomeComponent},
       {path: 'about', component: AboutComponent},
