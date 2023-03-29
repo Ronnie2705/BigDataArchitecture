@@ -15,6 +15,9 @@ import logging
 import queue
 import threading
 import time
+from pymongo import MongoClient
+
+client = MongoClient('mongodb+srv://Simrin_Shah:iHIo0wzReWF97jbg@mongodbclusterforbdapro.4re5jyl.mongodb.net/test')
 
 hostname = platform.node()
 
@@ -36,15 +39,41 @@ def log_info(message, key=infoKey):
     redisClient = redis.StrictRedis(host=redisHost, port=redisPort, db=0)
     redisClient.lpush('logging', f"{infoKey}:{message}")
 
-# Fetch records from database
-def fetchAllRecords(message):
-    log_debug("Input Data:", {message})
-    # Make a query to get data from mongodb
+# Fetch records from database and declaring the redis key 
+products_with_sentiment_score= "TopFiveProducts"
+def fetchAllRecords(category, low_price, high_price):
     
+    log_debug(f"Category: ({category})")
+    log_debug(f"Low Price: ({low_price})")
+    log_debug(f"High Price: ({high_price})")
+    # Make a query to get data from mongodb
+    db = client['BeyondPrice']
+    products = db['Products']
 
+    # list of dictionaries
+    list_products = []
+    product_category = products.find({"Category": category})
+    for prod in product_category:
+        prod_price = float(prod['Price'][1:].replace(',',''))
+        if float(low_price) <= prod_price <= float(high_price):
+            prod_spec = {}
+            prod_spec['Brand'] = prod['Brand']
+            prod_spec['Product_Name'] = prod['Product_Name']
+            prod_spec['price'] = prod['Price']
+            prod_spec['Image_URL'] = prod['Image URL']
+            prod_spec['Sentiment Score'] = prod['sentiment_score_vd']
+            list_products.append(prod_spec)
+
+    # Limit the records based on sentiment score
+    sortedList = sorted(list_products, key=lambda d: d['Sentiment Score'], reverse=True)
+    topFiveProducts = sortedList[0:5]
+    # log_debug(f"topFiveProducts: ({topFiveProducts})")
 
     #After fetching the records from db, push it to redis
-    #redisClient.lpush(songWorker,)
+    redisClient = redis.StrictRedis(host=redisHost, port = redisPort, db=0)
+    jsonData = json.dumps(topFiveProducts)
+    log_debug(f"jsonData: ({jsonData})")
+    redisClient.lpush(products_with_sentiment_score, jsonData)
 
 
 def callback(ch, method, properties, body):
@@ -55,11 +84,10 @@ def callback(ch, method, properties, body):
     low_price = body.decode().split()[1]
     high_price= body.decode().split()[2]
 
-    log_debug(f"Category: ({category})")
-    log_debug(f"Low Price: ({low_price})")
-    log_debug(f"High Price: ({high_price})")
     # passing the message to db function
-    fetchAllRecords(body)
+    fetchAllRecords(category, low_price, high_price)
+
+
 
 rabbitMQ = pika.BlockingConnection(
         pika.ConnectionParameters(host=rabbitMQHost))
