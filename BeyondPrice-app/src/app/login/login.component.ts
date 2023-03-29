@@ -20,6 +20,11 @@ export class LoginComponent {
 
 
   onSubmit() {
+    // this.validationForm.markAllAsTouched();
+    console.log(this.loginForm.value)
+    console.log(this.loginForm.get('email').value)
+    this.api.postlogin(this.loginForm.get('email').value
+    ,this.loginForm.get('password').value)
+  }
   
-}
 }
