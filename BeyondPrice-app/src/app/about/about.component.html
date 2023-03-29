@@ -1,21 +1,24 @@
 <app-navbar></app-navbar>
 
+
+<div class="about_page">
+
   <!-- About Beyond Price -->
-  <button class="collapsible" (click)="togglePopup('about')">About Beyond Price</button>
+  <button class="collapsible" (click)="togglePopup('about')"><span>About Beyond Price</span></button>
   <div id="about-container" *ngIf="show.about" class="popup">
     <p class="about-text">Welcome to Beyond Price, the website that helps you find the best deals by comparing prices of two items side by side. Our goal is to make shopping easier and more affordable for everyone, so you can save money on the things you love.</p>
   </div>
 <br>
 <br>
   <!-- How It Works -->
-    <button class= "collapsible" (click)="togglePopup1('howItWorks')">How it Works</button>
+    <button class= "collapsible" (click)="togglePopup1('howItWorks')"><span>How it Works</span></button>
     <div id="how-it-works-title" *ngIf="show.howItWorks" class="popup">
     <p class="how-it-works-text">It's easy to use Beyond Price! Simply select two items you're interested in and we'll display the prices from different retailers. You can then compare the prices and choose the best deal for you. It's that simple!</p>
     </div>
 <br>
 <br>
     <!-- Why Choose Beyond Price -->
-    <button class="collapsible" (click)="togglePopup2('why')">Why Choose Beyond Price</button>
+    <button class="collapsible" (click)="togglePopup2('why')"><span>Why Choose Beyond Price</span></button>
     <div id="why-choose-title" *ngIf="show.why" class="popup">
         <p>There are many reasons to choose Beyond Price for your shopping needs:</p>
     <ul class="why-choose-list">
@@ -28,7 +31,7 @@
 <br>
 <br>
     <!-- FAQS -->
-    <button class="collapsible" (click)="togglePopup3('faqs')">Frequently Asked Questions</button>
+    <button class="collapsible" (click)="togglePopup3('faqs')"><span>Frequently Asked Questions</span></button>
     <div id="faq-title" *ngIf="show.faqs" class="popup">
     <div class="faq-container">
       <div class="faq-item">
@@ -53,7 +56,7 @@
 <br>
 <br>
     <!-- Privacy Policy -->
-    <button class="collapsible" (click)="togglePopup4('privacyPolicy')">Privacy Policy</button>
+    <button class="collapsible" (click)="togglePopup4('privacyPolicy')"><span>Privacy Policy</span></button>
     <div id="privacy-policy-title" *ngIf="show.privacyPolicy" class="popup">
 <div class="privacy-policy-container">
   <p class="privacy-policy-text">At Beyond Price, we take the privacy of our users very seriously. This Privacy Policy explains how we collect, use, and protect your personal information when you use our website.</p>
@@ -84,6 +87,6 @@
   <p class="privacy-policy-text">We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page. We recommend that you review this Privacy Policy periodically for any changes.</p>
     </div>
     </div>
-
+  </div>
 
 <app-footer></app-footer>
