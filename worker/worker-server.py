@@ -61,6 +61,8 @@ def fetchAllRecords(category, low_price, high_price):
             prod_spec['Product_Name'] = prod['Product_Name']
             prod_spec['price'] = prod['Price']
             prod_spec['Image_URL'] = prod['Image URL']
+            prod_spec['Amazon_URL'] = prod['Amazon_URL']
+            prod_spec['Ebay_URL'] = prod['Ebay_URL']
             prod_spec['Sentiment Score'] = prod['sentiment_score_vd']
             list_products.append(prod_spec)
 

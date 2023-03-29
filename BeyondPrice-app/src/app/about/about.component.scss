@@ -1,3 +1,15 @@
+.about_page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+
+
 p, ul, li{
   font-size: 24px;
   color: #000000;
@@ -38,15 +50,15 @@ button {
   color: #FFFFFF;
   text-align: center;
   font-size: 24px;
-  padding: 18px;
-  width: 100%;
+  padding: 20px;
+  width: 70%;
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
 }
 
 button:hover{
-  background-color: green;
+  background-color: rgba(0, 120, 0, 0.5);
 }
 
 button span {
@@ -74,6 +86,17 @@ button:hover span:after {
   opacity: 1;
   top: calc(100% - 10px);
 }
+
+#about-container, #how-it-works-title, #why-choose-title, #faq-title{
+  width: 70%;
+}
+
+#privacy-policy-title{
+  width: 70%;
+  padding-bottom: 100px;
+}
+
+
 
 
 
