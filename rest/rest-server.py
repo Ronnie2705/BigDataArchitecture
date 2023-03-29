@@ -1,4 +1,6 @@
-from flask import Flask, request, Response
+from flask import Flask, request, Response, jsonify
+from pymongo import MongoClient # you may need to install pymongo
+from bson.json_util import dumps
 import redis
 import platform
 import os, io
@@ -7,7 +9,7 @@ import jsonpickle
 import json
 import base64
 import pika
-import pickle
+
 
 # import mysql.connector
 from flask_cors import CORS
@@ -43,16 +45,49 @@ app = Flask(__name__)
 cors = CORS(app, resources={r"*": {"origins": "*"}})
 log_debug("Creating Rest front-end")
 
+# Connect with Pymongo​
+client = MongoClient('mongodb+srv://SwapnilSethi:La6r8Stu9AGqJbr@mongodbclusterforbdapro.4re5jyl.mongodb.net/test')
+db = client["BeyondPrice"]
+users_collection = db["UserData"]
 
 # We need this default route since Google Kubernetes Engine checks for the health of our services(if we deploy to the cloud)
 @app.route('/', methods=['GET'])
 def hello():
     return '<h1> Welcome to Voice-based music search service</h1><p> Use a valid endpoint </p>'
 
+@app.route('/login', methods=['POST'])
+def login():
+    data = request.get_json()
+    username = data.get('username')
+    password = data.get('password')
 
+    user = users_collection.users.find_one({'username': username, 'password': password})
+    if user:
+        return jsonify({'success': True})
+    else:
+        return jsonify({'success': False})
+    
+@app.route('/apiv1/signin', methods = ['POST'])
+def signup():
+      data = request.json
+      print(data)
+      firstname =data['firstName']
+      lastname =data['lastName']
+      email = data['email']
+      phoneNumber = data['phoneNumber']
+      password = data['password']
 
-def subscribeToRMQ(input_data):
-    log_debug("Input Data:", {input_data})
+      # Validate email and password
+      if not email or not password or not firstname or not lastname or not phoneNumber:
+        return {'message': 'Email and password are required'}, 400
+
+      # Store email and password in MongoDB
+      users_collection.insert_one({'email': email, 'password': password, 'firstname':firstname, 'lastname':lastname, 'phoneNumber':phoneNumber})
+ 
+      return {'message': 'Signup successful'}, 201
+    
+@app.route('/apiv1/subscribe/<string:name>', methods=['GET'])
+def subscribe(name):
     rabbitMQ = pika.BlockingConnection(pika.ConnectionParameters(host=rabbitMQHost))
     rabbitMQChannel = rabbitMQ.channel()
     rabbitMQChannel.queue_declare(queue='FetchData')
@@ -179,6 +214,67 @@ def fetchData(category, lowPrice, highPrice):
 #     # Encoding our response dict into json and returning it
 #     resp_pickled = jsonpickle.encode(songData)
 #     return Response(response = resp_pickled, status = 200, mimetype = "application/json")
+
+
+# # Finds all tracks by artist that has been queried before and is stored in our DB
+# # and returns the result to the user if it exists, otherwise let's them know to do
+# # a brand new voice query
+# @app.route('/apiv1/artist/<string:name>', methods=['GET'])
+# def findArtist(name):
+#     try:
+#         print("Searching for a pre-existing query of ", name)
+#         ### SEARCH OUR DATABASE FOR ANY SONG ENTRIES THAT HAVE THAT ARTIST NAME???
+#         mydb = mysql.connector.connect(
+#         host=mySQLhost,
+#         user="root",
+#         password="password"
+#         )
+
+#         mycursor = mydb.cursor()
+#         mycursor.execute("USE spotifydb")
+#         query = "SELECT * FROM tracks WHERE artist='{}'".format(name)
+#         mycursor.execute(query)
+#         # results is a list of the track info: ENTRY ID | NAME | ARTIST | ALBUM | URL
+#         results = mycursor.fetchall()
+#         if results is None:
+#             response = {
+#             "No Records": "Nothing matching that query could be found..."
+#             }
+#         # finalData=[]
+#         print("results:----", results)
+#         # for idx, track in enumerate(results['tracks']['items']):
+#         #     # print for server debugging
+#         #     print(idx, track['name'], track['artists'][0]['name'], track['album']['name'], track['external_urls']['spotify'])
+#         #     # send back top 10 results to client: NAME | ARTIST NAME | ALBUM NAME | SPOTIFY TRACK URL
+#         #     songData[idx] = [track['name'], track['artists'][0]['name'], track['album']['name'], track['external_urls']['spotify']] # Returns the track object but we can access certain values from the dict
+#         finalDict=[]
+#         for idx in range(len(results)):  
+#             dict={}
+#             dict['TrackName']=results[idx][1]
+#             dict['ArtistName']=results[idx][2] 
+#             dict['AlbumName']=results[idx][3]
+#             dict['Url']=results[idx][4]
+#             finalDict.append(dict)
+            
+#         # This can be improved by looping over all of the results and returning all of them instead of just the first by indexing the 0th element as follows
+#         info = "Songs found by " + name + ": Track Name: " + results[0][1] + ", Artist Name: " + results[0][2] + ", Album Name: " + results[0][3] + ", Spotify URL: " + results[0][4]
+#         print(info)
+#         # Later on this response could be improved if it were a list instead of a string so it can be worked with efficiently
+#         response = {
+#         "TrackRecords": finalDict
+#         }
+
+#     except Exception as exp:
+#         log_debug("Exception in rest-server file:", exp)
+#         print("Exception in rest-server file:", exp)
+#         response = {}
+#         resp_pickled = jsonpickle.encode(response)
+#         return Response(response = resp_pickled, status = 404, mimetype = "application/json")
+
+#     # Encoding our response dict into json and returning it
+#     resp_pickled = jsonpickle.encode(response)
+#     return Response(response = resp_pickled, status = 200, mimetype = "application/json")
+
 
 # start flask app
 if __name__ == "__main__":
