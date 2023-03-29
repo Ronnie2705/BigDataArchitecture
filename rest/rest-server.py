@@ -67,24 +67,28 @@ def login():
     else:
         return jsonify({'success': False})
     
-@app.route('/apiv1/signin', methods = ['POST'])
+@app.route('/apiv1/signup', methods = ['POST'])
 def signup():
-      data = request.json
-      print(data)
-      firstname =data['firstName']
-      lastname =data['lastName']
-      email = data['email']
-      phoneNumber = data['phoneNumber']
-      password = data['password']
+    data = request.json
+    print(data)
+    firstname =data['firstName']
+    lastname =data['lastName']
+    email = data['email']
+    phoneNumber = data['phoneNumber']
+    password = data['password']
 
-      # Validate email and password
-      if not email or not password or not firstname or not lastname or not phoneNumber:
-        return {'message': 'Email and password are required'}, 400
+    # Validate email and password
+    if not email or not password or not firstname or not lastname or not phoneNumber:
+        result = {"Please fill all the details!"}
+        response_pickled = str(jsonpickle.encode(result))
+        return Response(response=response_pickled, status=200, mimetype="application/json")
 
-      # Store email and password in MongoDB
-      users_collection.insert_one({'email': email, 'password': password, 'firstname':firstname, 'lastname':lastname, 'phoneNumber':phoneNumber})
- 
-      return {'message': 'Signup successful'}, 201
+    # Store email and password in MongoDB
+    users_collection.insert_one({'email': email, 'password': password, 'firstname':firstname, 'lastname':lastname, 'phoneNumber':phoneNumber})
+
+    result = {"SignUp is complete!"}
+    response_pickled = str(jsonpickle.encode(result))
+    return Response(response=response_pickled, status=200, mimetype="application/json")
     
 
 def subscribeToRMQ(input_data):
