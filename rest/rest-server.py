@@ -18,8 +18,7 @@ redisHost= os.getenv("REDIS_HOST") or "localhost"
 redisPort= os.getenv("REDIS_PORT") or 6379
 REST = os.getenv("REST") or "localhost:5000"
 
-# clientKey = os.getenv("SPOTIFY_CLIENT_ID") or "e0562ed50444401b834de3180171af02"
-# clientSecret = os.getenv("SPOTIFY_CLIENT_SECRET") or "146de64b5b3c4751ad14aef744415aa0"
+
 
 print(f"Connecting to redis({redisHost}:{redisPort})")
 
@@ -87,17 +86,57 @@ def signup():
  
       return {'message': 'Signup successful'}, 201
     
-@app.route('/apiv1/subscribe/<string:name>', methods=['GET'])
-def subscribe(name):
+#@app.route('/apiv1/subscribe/<string:name>', methods=['GET'])
+def subscribe(input_data):
+    log_debug("Input Data:", {input_data})
     rabbitMQ = pika.BlockingConnection(pika.ConnectionParameters(host=rabbitMQHost))
     rabbitMQChannel = rabbitMQ.channel()
-    rabbitMQChannel.queue_declare(queue='toComputeEngine')
-    print("got a request to subscribe for the api from user with name " + name)
-    message = name
-    rabbitMQChannel.basic_publish(exchange='',routing_key='toComputeEngine', body=message)
+    rabbitMQChannel.queue_declare(queue='FetchData')
+    print("got a request to subscribe for the api from user with data " + input_data)
+    message = input_data
+    rabbitMQChannel.basic_publish(exchange='',routing_key='FetchData', body=message)
+    log_debug("Status:", "Process is in RabbitMQ")
     rabbitMQChannel.close()
     rabbitMQ.close()
-    result = {"action":"queued"}
+    # result = {"action":"queued"}
+    # response_pickled = jsonpickle.encode(result)
+    # return Response(response=response_pickled, status=200, mimetype="application/json")
+
+# Fetch top 10 products based upon user choice and price range
+@app.route('/apiv1/fetchData/<string:category>/<string:lowPrice>/<string:highPrice>', methods=['GET'])
+def fetchData(category, lowPrice, highPrice):
+    redis_curr_key= category + " " + lowPrice + " " + highPrice
+    log_debug("redis_curr_key:", {redis_curr_key})
+
+    # Check if data exists in redis    
+    try:
+        log_debug("Fetching the data from redis")            
+        redis_data = redisClient.exists(redis_curr_key)
+        if(redis_data):
+            log_debug("Data is present in redis:", {redis_data})
+            print("Data is present in redis:", {redis_data})
+        else:               
+            log_debug("Data is not present in redis:", {redis_data})
+            print("Data is not present in redis:", {redis_data})
+
+            # Pass the parameters to worker using rabbitmq
+            input_data = redis_curr_key
+            subscribe(input_data)
+
+        
+    except Exception as exp:
+        log_debug("Exception raised in log loop:", {str(exp)})
+        print(f"Exception raised in log loop: {str(exp)}")
+
+
+    
+
+    
+
+    # Fetch the top 10 records from redis
+
+    
+    result = {"action":"Fetching the Data"}
     response_pickled = jsonpickle.encode(result)
     return Response(response=response_pickled, status=200, mimetype="application/json")
 
