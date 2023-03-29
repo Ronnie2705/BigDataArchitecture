@@ -7,6 +7,7 @@ import jsonpickle
 import json
 import base64
 import pika
+import pickle
 
 # import mysql.connector
 from flask_cors import CORS
@@ -49,8 +50,8 @@ def hello():
     return '<h1> Welcome to Voice-based music search service</h1><p> Use a valid endpoint </p>'
 
 
-#@app.route('/apiv1/subscribe/<string:name>', methods=['GET'])
-def subscribe(input_data):
+
+def subscribeToRMQ(input_data):
     log_debug("Input Data:", {input_data})
     rabbitMQ = pika.BlockingConnection(pika.ConnectionParameters(host=rabbitMQHost))
     rabbitMQChannel = rabbitMQ.channel()
@@ -68,13 +69,20 @@ def subscribe(input_data):
 # Fetch top 10 products based upon user choice and price range
 @app.route('/apiv1/fetchData/<string:category>/<string:lowPrice>/<string:highPrice>', methods=['GET'])
 def fetchData(category, lowPrice, highPrice):
-    redis_curr_key= category + " " + lowPrice + " " + highPrice
-    log_debug("redis_curr_key:", {redis_curr_key})
+
+    # price_values= priceRange.split('-')
+
+    # #To get price without dollar sign
+    # lowPrice = price_values[0][1:]
+    # highPrice = price_values[1][1:]
+
+    curr_key= category + " " + lowPrice + " " + highPrice
+    log_debug("redis_curr_key:", {curr_key})
 
     # Check if data exists in redis    
     try:
         log_debug("Fetching the data from redis")            
-        redis_data = redisClient.exists(redis_curr_key)
+        redis_data = redisClient.exists(curr_key)
         if(redis_data):
             log_debug("Data is present in redis:", {redis_data})
             print("Data is present in redis:", {redis_data})
@@ -83,24 +91,26 @@ def fetchData(category, lowPrice, highPrice):
             print("Data is not present in redis:", {redis_data})
 
             # Pass the parameters to worker using rabbitmq
-            input_data = redis_curr_key
-            subscribe(input_data)
-
+            input_data = curr_key
+            subscribeToRMQ(input_data)
         
     except Exception as exp:
         log_debug("Exception raised in log loop:", {str(exp)})
         print(f"Exception raised in log loop: {str(exp)}")
+     
+    # Fetch the top 5 records based on sentiment score from redis and declaring the key
+    products_with_sentiment_score= "TopFiveProducts"
+    log_debug("Fetching the data from redis, based on sentiment score")
 
-
+    list_of_sorted_products=redisClient.blpop(products_with_sentiment_score, timeout=0)
     
-
+    value= list_of_sorted_products[1].decode()
     
+    topFiveProducts=json.loads(value)
+    log_debug(f"topFiveProducts: ({topFiveProducts})")
 
-    # Fetch the top 10 records from redis
-
-    
-    result = {"action":"Fetching the Data"}
-    response_pickled = jsonpickle.encode(result)
+    # result = {"action":"Fetching the Data"}
+    response_pickled = str(jsonpickle.encode(topFiveProducts))
     return Response(response=response_pickled, status=200, mimetype="application/json")
 
 # # This route does a voice search for songs and returns it to the user

@@ -32,12 +32,12 @@ kubectl -n bigdata apply -f logs/logs-deployment.yaml
 kubectl -n bigdata apply -f worker/worker-deployment.yaml
 
 # mongodb
-kubectl -n bigdata apply -f mongodb/mongodb-secrets.yaml
-kubectl -n bigdata create configmap mongodb-config-file --from-file=conf=mongodb/mongodb.conf
-kubectl -n bigdata apply -f mongodb/mongodb-pvc.yaml
-kubectl -n bigdata apply -f mongodb/mongodb-service.yaml
-kubectl -n bigdata apply -f mongodb/mongodb-deployment.yaml
+# kubectl -n bigdata apply -f mongodb/mongodb-secrets.yaml
+# kubectl -n bigdata create configmap mongodb-config-file --from-file=conf=mongodb/mongodb.conf
+# kubectl -n bigdata apply -f mongodb/mongodb-pvc.yaml
+# kubectl -n bigdata apply -f mongodb/mongodb-service.yaml
+# kubectl -n bigdata apply -f mongodb/mongodb-deployment.yaml
 
 # portforwarding 
 kubectl port-forward --address 0.0.0.0 service/redis 6379:6379 &
-kubectl port-forward --address 0.0.0.0 service/mongodb 27017:27017 &
+# kubectl port-forward --address 0.0.0.0 service/mongodb 27017:27017 &
