@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class RestService {
-  postSignupURL= "http://localhost//apiv1/signup"
+  postSignupURL= "http://localhost/apiv1/signup"
 
   
   constructor(private http:HttpClient, private router: Router) { }
@@ -22,6 +22,21 @@ export class RestService {
         console.log("Welcome" + firstName);
         this.router.navigate(['/login']);
       }
+    });
+  }
+
+  postloginURL= "http://localhost/apiv1/login"
+  postlogin(email:string,password:string){
+    const data = {email:email,password:password };
+    console.log(data)
+    // return this.http.post(this.postSignupURL,data).subscribe()
+    this.http.post(this.postloginURL, data).subscribe(response => {
+      console.log(response);
+      
+      // value= response.
+      // if(response.toString()=="SignUp is complete!"){
+      //   console.log("Welcome" + firstName);
+      // }
     });
   }
 }

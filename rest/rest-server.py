@@ -56,13 +56,13 @@ users_collection = db["UserData"]
 def hello():
     return '<h1> Welcome to Voice-based music search service</h1><p> Use a valid endpoint </p>'
 
-@app.route('/login', methods=['POST'])
+@app.route('/apiv1/login', methods=['POST'])
 def login():
     data = request.get_json()
-    username = data.get('username')
+    email = data.get('email')
     password = data.get('password')
 
-    user = users_collection.users.find_one({'username': username, 'password': password})
+    user = users_collection.users.find_one({'email': email, 'password': password})
     if user:
         return jsonify({'success': True})
     else:
