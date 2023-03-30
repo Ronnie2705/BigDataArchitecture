@@ -9,20 +9,26 @@
           <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <div class="mb-3">
               <label for="email" class="form-label">Email address</label>
-              <input type="email" class="form-control" id="email" formControlName="email" required>
-              <div class="invalid-feedback" *ngIf="loginForm.get('email').invalid && (loginForm.get('email').dirty || loginForm.get('email').touched)">
-                Please provide a valid email.
+              <input type="email" class="form-control" id="email" formControlName="email" 
+                     [ngClass]="{'is-invalid': email.invalid && (email.dirty || email.touched), 'is-valid': email.valid && email.dirty}">
+              <div class="invalid-feedback" *ngIf="email.invalid && (email.dirty || email.touched)">
+                <div *ngIf="email.errors.required">Email address is required.</div>
+                <div *ngIf="email.errors.email">Please provide a valid email.</div>
               </div>
             </div>
             <div class="mb-3">
               <label for="password" class="form-label">Password</label>
-              <input type="password" class="form-control" id="password" formControlName="password" required>
-              <div class="invalid-feedback" *ngIf="loginForm.get('password').invalid && (loginForm.get('password').dirty || loginForm.get('password').touched)">
-                Please provide a valid password.
+              <input type="password" class="form-control" id="password" formControlName="password" 
+                     [ngClass]="{'is-invalid': password.invalid && (password.dirty || password.touched), 'is-valid': password.valid && password.dirty}">
+              <div class="invalid-feedback" *ngIf="password.invalid && (password.dirty || password.touched)">
+                Password is required.
               </div>
-            </div>
+            </div>                 
             <button type="submit" class="btn btn-primary">Login</button>
-          </form>
+            <div class="alert alert-danger mt-3" *ngIf="showErrorMessage">
+              Please fill in all required fields.
+            </div>
+          </form>                              
         </div>
       </div>
     </div>

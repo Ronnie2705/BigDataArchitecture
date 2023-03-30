@@ -1,35 +1,54 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit} from '@angular/core';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  submitted = false;
+  showErrorMessage = false;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private fb: FormBuilder) {}
 
-  ngOnInit() {
-    this.loginForm = this.formBuilder.group({
+  ngOnInit(): void {
+    this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      password: ['', Validators.required],
     });
   }
 
-  get f() { return this.loginForm.controls; }
+  get email(): AbstractControl {
+    return this.loginForm.get('email')!;
+  }
+
+  get password(): AbstractControl {
+    return this.loginForm.get('password')!;
+  }
 
   onSubmit() {
-    this.submitted = true;
-
     if (this.loginForm.invalid) {
+      // form is invalid, show error message
+      this.showErrorMessage = true;
       return;
     }
 
-    // Call login service to authenticate user
-    // If successful, redirect to main page
-    // Otherwise, display error message
+    // perform login check
+    const email = this.email.value;
+    const password = this.password.value;
+
+    if (email === 'example@email.com' && password === 'password') {
+      // login successful, redirect to home page
+      console.log('Login successful!');
+      // Redirect the user to the home page using Angular Router
+    } else {
+      // login failed, show error message
+      console.log('Login failed!');
+      // Display an error message in the UI using a Toast or Alert component
+    }
   }
 }
+
+
+

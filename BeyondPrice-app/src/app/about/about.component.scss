@@ -1,3 +1,6 @@
+*{
+  font-weight: bold;
+}
 .about_page {
   display: flex;
   flex-direction: column;
@@ -12,7 +15,7 @@
 
 p, ul, li{
   font-size: 24px;
-  color: #000000;
+  color: #ffffff;
   text-align: center;
 }
 
@@ -26,7 +29,7 @@ h2{
 }
 
 h3{
-  font-size: 48px;
+  font-size: 40px;
   font-weight: bolder;
   color: #E55982;
   text-align: center;
@@ -58,7 +61,7 @@ button {
 }
 
 button:hover{
-  background-color: rgba(0, 120, 0, 0.5);
+  background-color: #00ff8071;
 }
 
 button span {
@@ -94,6 +97,16 @@ button:hover span:after {
 #privacy-policy-title{
   width: 70%;
   padding-bottom: 100px;
+}
+
+.collapsible span{
+  font-weight: normal;
+}
+
+.collapsible:hover span{
+  font-weight: bolder;
+  font-size: 30px;
+  text-decoration: underline;
 }
 
 

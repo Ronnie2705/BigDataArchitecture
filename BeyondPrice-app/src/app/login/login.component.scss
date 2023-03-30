@@ -43,3 +43,13 @@ label{
 button{
   background-color: rgba(4, 214, 4, 0.685);
 }
+
+.form-control.is-invalid {
+  border-color: red !important;
+}
+
+.invalid-feedback input.form-control.is-invalid {
+  border-color: red;
+}
+
+
