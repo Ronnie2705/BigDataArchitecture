@@ -28,6 +28,7 @@ export class RestService {
     // return this.http.post(this.postSignupURL,data).subscribe()
     this.http.post(this.postloginURL, data).subscribe(response => {
       console.log(response);
+      
       // value= response.
       // if(response.toString()=="SignUp is complete!"){
       //   console.log("Welcome" + firstName);
