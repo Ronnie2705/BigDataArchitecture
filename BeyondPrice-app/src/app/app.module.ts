@@ -70,7 +70,7 @@ import { UserHomeNavbarComponent } from './user-home-navbar/user-home-navbar.com
       {path: 'about', component: AboutComponent},
       {path: 'login', component: LoginComponent},
       {path: 'signup', component: SignupComponent},
-      { path: '',component: UserHomeNavbarComponent},
+      { path: '',component: SignupComponent},
     ]),
   ],
   providers: [],
