@@ -23,7 +23,7 @@ export class UserDashFilterComponent {
   onSelected(){
     //console.log("SIMRIN",this.valueFromSelect)
 
-    this.router.navigate(['/products'],{queryParams:{'category/lowPrice/highPrice':this.valueFromSelect}})
+    this.router.navigate(['/products'],{queryParams:{'url':this.valueFromSelect}})
   }
 
 
