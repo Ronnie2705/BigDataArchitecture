@@ -32,6 +32,7 @@ import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { AboutComponent } from './about/about.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProdCompareComponent } from './prod-compare/prod-compare.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     SignupComponent,
     LoginComponent,
-    AboutComponent
+    AboutComponent,
+    ProdCompareComponent
   ],
   imports: [
     BrowserModule,
@@ -68,8 +70,8 @@ import { HttpClientModule } from '@angular/common/http';
       {path: 'about', component: AboutComponent},
       {path: 'login', component: LoginComponent},
       {path: 'signup', component: SignupComponent},
-      { path: '',component: HomeComponent},
-    ]),
+      { path: '',component: ProdCompareComponent},
+    ]), 
   ],
   providers: [],
   bootstrap: [AppComponent]
