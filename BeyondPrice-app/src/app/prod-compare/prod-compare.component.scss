@@ -1,0 +1,57 @@
+
+// .col{
+//     width: 100%;
+//     justify-content: center;
+//     align-items: center;
+// }
+// .placecenter{
+//     width: 100%;
+//     justify-content: right;
+//     align-items:  center;
+// }
+
+// .card_left{
+//     background-color: rgba(0, 0, 1, 0.8);
+//     display: right;
+// }
+
+
+// .card{
+    // background-color: rgba(0, 0, 1, 0.8);
+    // width: 500px;
+    // display: inline;
+    // float: left;
+// }
+
+// .card_right{
+//     background-color: rgba(0, 0, 1, 0.8);
+//     justify-content: center;
+//     align-items: left;
+// }
+table {
+    width: 100%;
+    table-layout: fixed;
+  }
+  
+.col{
+    width: auto;
+    justify-content: center;
+    align-items: center;
+}
+.placecenter{
+    width: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.card{
+    background-color: rgba(0, 0, 1, 0.8);
+}
+
+th, td {
+    overflow: hidden;
+    width:60px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
