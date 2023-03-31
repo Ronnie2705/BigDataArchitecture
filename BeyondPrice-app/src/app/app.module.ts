@@ -79,7 +79,7 @@ import { UserHomeNavbarComponent } from './user-home-navbar/user-home-navbar.com
       {path: 'about', component: AboutComponent},
       {path: 'login', component: LoginComponent},
       {path: 'signup', component: SignupComponent},
-      { path: '',component: UserDashFilterComponent},
+      { path: '',component: ProdCompareComponent},
       { path: 'userDash',component: UserDashFilterComponent},
       {path:'test', component: TestComponent},
       {path:'compareProducts', component: ProdCompareComponent},

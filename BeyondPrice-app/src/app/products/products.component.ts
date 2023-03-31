@@ -33,7 +33,7 @@ export class ProductsComponent  implements OnInit  {
 gotoCompareProducts(product){
   console.log(product)
 
-  this.router.navigate(['/test'],{queryParams:{Brand:product.Brand,Product_Name:product.Product_Name,Image_URL:product.Image_URL,price:product.price,Amazon_URL:product.Amazon_URL,Ebay_URL:product.Ebay_URL}})
+  this.router.navigate(['/compareProducts'],{queryParams:{Brand:product.Brand,Product_Name:product.Product_Name,Image_URL:product.Image_URL,price:product.price,Amazon_URL:product.Amazon_URL,Ebay_URL:product.Ebay_URL}})
 
 }
 }
