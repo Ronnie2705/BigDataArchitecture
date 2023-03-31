@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {MatSelectModule} from '@angular/material/select';
 
 @Component({
   selector: 'app-root',

@@ -4,8 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 
-
-
 // MDB Modules
 import { MdbAccordionModule } from 'mdb-angular-ui-kit/accordion';
 import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
@@ -32,6 +30,9 @@ import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { AboutComponent } from './about/about.component';
 import { HttpClientModule } from '@angular/common/http';
+import { UserDashFilterComponent } from './user-dash-filter/user-dash-filter.component';
+
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -41,9 +42,11 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     SignupComponent,
     LoginComponent,
-    AboutComponent
+    AboutComponent,
+    UserDashFilterComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     BrowserAnimationsModule,
     MdbAccordionModule,
@@ -68,7 +71,7 @@ import { HttpClientModule } from '@angular/common/http';
       {path: 'about', component: AboutComponent},
       {path: 'login', component: LoginComponent},
       {path: 'signup', component: SignupComponent},
-      { path: '',component: HomeComponent},
+      { path: '',component: UserDashFilterComponent},
     ]),
   ],
   providers: [],
