@@ -186,13 +186,19 @@ def helper(amazonLink, ebayLink):
     
     return amazon_price, ebay_price
 
-@app.route('/apiv1/compareProducts', methods=['GET'])
+@app.route('/apiv1/compareProducts', methods=['POST'])
 def compareProducts():
+    data = request.get_json()
+    amazonLink = data.get('Amazon_URL')
+    ebayLink = data.get('Ebay_URL')
+    print("We are in test function")
+    print(amazonLink)
     log_debug("We are in test function")
-    amazonLink = "https://www.amazon.com/adidas-Ultraboost-Sneaker-White-Black/dp/B07S5K8QDN/ref=sr_1_8?crid=3K2HRUYTZ5VRK&keywords=mens%2Bshoes&qid=1677624404&refinements=p_89%3Aadidas&rnid=2528832011&s=apparel&sprefix=men%2Caps%2C144&sr=1-8&th=1"
-    ebayLink = "https://www.ebay.com/itm/354346339494?hash=item5280b00ca6:g:7T8AAOSw9l5jUfrH&amdata=enc%3AAQAHAAAA8ID3w%2BdGpJcT%2BdFSejUG3yokyblYkJSSGkAVbyQeIdqBd8VOHrN%2F4n8jdlkib0yizJwOXOEC5etq0ikY6dGgJ9qWjpV4yaUZTU4gpkEjktEt6UENzvAtqae%2Fa65z0Z2WnieStkJfs4W2SYO182ZcyjH%2F7jpt0P8s5aOBBuRxLBTXFfTkxcuG1aCVFrym%2FEpxuyWCM0r6N0HrPDTs1RGSvzvrSWJugEq5ul0sRAYKGYZrzBm7DNE8sNcC2h%2FkwYS0EDR%2Fz5Lg2AC%2FVsq7TFI%2Bott%2BhltlGeAeYczQXyuumnqaX2g0gHjVhE6KaKGYlw6j3w%3D%3D%7Ctkp%3ABk9SR97yrKPTYQ"
+    # amazonLink = "https://www.amazon.com/adidas-Ultraboost-Sneaker-White-Black/dp/B07S5K8QDN/ref=sr_1_8?crid=3K2HRUYTZ5VRK&keywords=mens%2Bshoes&qid=1677624404&refinements=p_89%3Aadidas&rnid=2528832011&s=apparel&sprefix=men%2Caps%2C144&sr=1-8&th=1"
+    # ebayLink = "https://www.ebay.com/itm/354346339494?hash=item5280b00ca6:g:7T8AAOSw9l5jUfrH&amdata=enc%3AAQAHAAAA8ID3w%2BdGpJcT%2BdFSejUG3yokyblYkJSSGkAVbyQeIdqBd8VOHrN%2F4n8jdlkib0yizJwOXOEC5etq0ikY6dGgJ9qWjpV4yaUZTU4gpkEjktEt6UENzvAtqae%2Fa65z0Z2WnieStkJfs4W2SYO182ZcyjH%2F7jpt0P8s5aOBBuRxLBTXFfTkxcuG1aCVFrym%2FEpxuyWCM0r6N0HrPDTs1RGSvzvrSWJugEq5ul0sRAYKGYZrzBm7DNE8sNcC2h%2FkwYS0EDR%2Fz5Lg2AC%2FVsq7TFI%2Bott%2BhltlGeAeYczQXyuumnqaX2g0gHjVhE6KaKGYlw6j3w%3D%3D%7Ctkp%3ABk9SR97yrKPTYQ"
     amazon_price, ebay_price = helper(amazonLink, ebayLink)
     finalPrices= [amazon_price, ebay_price]
+    print(finalPrices)
     log_debug(f"result: ({finalPrices})")
     response_pickled = str(jsonpickle.encode(finalPrices))
     return Response(response=response_pickled, status=200, mimetype="application/json")
