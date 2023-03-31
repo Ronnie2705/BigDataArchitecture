@@ -34,6 +34,7 @@ import { AboutComponent } from './about/about.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductsComponent } from './products/products.component';
 import { TestComponent } from './test/test.component';
+import { UserHomeNavbarComponent } from './user-home-navbar/user-home-navbar.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { TestComponent } from './test/test.component';
     AboutComponent,
     ProductsComponent,
     TestComponent,
+    UserHomeNavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +74,7 @@ import { TestComponent } from './test/test.component';
       {path: 'about', component: AboutComponent},
       {path: 'login', component: LoginComponent},
       {path: 'signup', component: SignupComponent},
-      { path: '',component: ProductsComponent},
+      { path: '',component: HomeComponent},
       {path:'test', component: TestComponent}
       // { path: 'products',component: ProductsComponent},
     ]),

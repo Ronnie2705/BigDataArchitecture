@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,9 @@ export class RestService {
   data: any;
   router: any;
 
-  constructor(private http:HttpClient) { }
+  
+  constructor(private http:HttpClient, private router: Router) { }
+  
   postSignupData(firstName:string,lastName:string,email:string,phoneNumber:string,password:string){
     const data = { firstName: firstName, lastName: lastName, email:email,phoneNumber:phoneNumber,password:password };
     console.log(data)
@@ -17,9 +20,10 @@ export class RestService {
     this.http.post(this.postSignupURL, data).subscribe(response => {
       console.log(response);
       // value= response.
-      // if(response.toString()=="SignUp is complete!"){
-      //   console.log("Welcome" + firstName);
-      // }
+      if(response){
+        console.log("Welcome" + firstName);
+        this.router.navigate(['/login']);
+      }
     });
   }
 
@@ -30,6 +34,7 @@ export class RestService {
     // return this.http.post(this.postSignupURL,data).subscribe()
     this.http.post(this.postloginURL, data).subscribe(response => {
       console.log(response);
+      
       // value= response.
       // if(response.toString()=="SignUp is complete!"){
       //   console.log("Welcome" + firstName);
