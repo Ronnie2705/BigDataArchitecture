@@ -32,6 +32,8 @@ import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { AboutComponent } from './about/about.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductsComponent } from './products/products.component';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     SignupComponent,
     LoginComponent,
-    AboutComponent
+    AboutComponent,
+    ProductsComponent,
+    TestComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,7 +72,9 @@ import { HttpClientModule } from '@angular/common/http';
       {path: 'about', component: AboutComponent},
       {path: 'login', component: LoginComponent},
       {path: 'signup', component: SignupComponent},
-      { path: '',component: HomeComponent},
+      { path: '',component: ProductsComponent},
+      {path:'test', component: TestComponent}
+      // { path: 'products',component: ProductsComponent},
     ]),
   ],
   providers: [],

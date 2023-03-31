@@ -6,6 +6,8 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 })
 export class RestService {
   postSignupURL= "http://localhost/apiv1/signup"
+  data: any;
+  router: any;
 
   constructor(private http:HttpClient) { }
   postSignupData(firstName:string,lastName:string,email:string,phoneNumber:string,password:string){
@@ -34,4 +36,16 @@ export class RestService {
       // }
     });
   }
+
+  // getProducts(){
+    
+  //   this.http.get("http://localhost/apiv1/fetchData/Mobiles/45.00/362.17").subscribe(resp=>{
+  //     this.data = resp
+  //     console.log("jhansi",resp)
+  //     return resp
+  // }
+  //   );
+  //   console.log("swaps",this.data)
+  //   return this.data
+  // }
 }
