@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-dash-filter',
@@ -16,9 +17,16 @@ export class UserDashFilterComponent {
   // }
 
   valueFromSelect;
-  onSelected(){
-    console.log("SIMRIN",this.valueFromSelect)
+  constructor(private router: Router){
+
   }
+  onSelected(){
+    //console.log("SIMRIN",this.valueFromSelect)
+
+    this.router.navigate(['/products'],{queryParams:{'category/lowPrice/highPrice':this.valueFromSelect}})
+  }
+
+
 
 }
 
