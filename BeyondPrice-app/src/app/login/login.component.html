@@ -10,16 +10,16 @@
             <div class="mb-3">
               <label for="email" class="form-label">Email address</label>
               <input type="email" class="form-control" id="email" formControlName="email" required>
-              <div class="invalid-feedback" *ngIf="loginForm.get('email').invalid && (loginForm.get('email').dirty || loginForm.get('email').touched)">
+              <!-- <div class="invalid-feedback" *ngIf="loginForm.get('email').invalid && (loginForm.get('email').dirty || loginForm.get('email').touched)">
                 Please provide a valid email.
-              </div>
+              </div> -->
             </div>
             <div class="mb-3">
               <label for="password" class="form-label">Password</label>
               <input type="password" class="form-control" id="password" formControlName="password" required>
-              <div class="invalid-feedback" *ngIf="loginForm.get('password').invalid && (loginForm.get('password').dirty || loginForm.get('password').touched)">
+              <!-- <div class="invalid-feedback" *ngIf="loginForm.get('password').invalid && (loginForm.get('password').dirty || loginForm.get('password').touched)">
                 Please provide a valid password.
-              </div>
+              </div> -->
             </div>
             <button type="submit" class="btn btn-primary">Login</button>
           </form>

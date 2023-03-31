@@ -33,6 +33,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserDashFilterComponent } from './user-dash-filter/user-dash-filter.component';
 
 import { FormsModule } from '@angular/forms';
+import { ProductsComponent } from './products/products.component';
+import { TestComponent } from './test/test.component';
+import { UserHomeNavbarComponent } from './user-home-navbar/user-home-navbar.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +46,10 @@ import { FormsModule } from '@angular/forms';
     SignupComponent,
     LoginComponent,
     AboutComponent,
-    UserDashFilterComponent
+    UserDashFilterComponent,
+    ProductsComponent,
+    TestComponent,
+    UserHomeNavbarComponent
   ],
   imports: [
     FormsModule,
@@ -72,7 +78,9 @@ import { FormsModule } from '@angular/forms';
       {path: 'login', component: LoginComponent},
       {path: 'signup', component: SignupComponent},
       { path: '',component: UserDashFilterComponent},
-    ]),
+      {path:'test', component: TestComponent},
+      { path: 'products',component: ProductsComponent},
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]

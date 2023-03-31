@@ -53,6 +53,5 @@ export class SignupComponent {
     ,this.validationForm.get('email').value
     ,this.validationForm.get('phone').value
     ,this.validationForm.get('userPassword').value)
-    
   }
 }
