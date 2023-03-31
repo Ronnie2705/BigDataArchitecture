@@ -1,69 +1,29 @@
 <app-navbar></app-navbar>
 <div class="pd">
-    <div class="row placecenter">
-        <div class="col-md-8">
+    <div class="row placecenter" >
+        <div class="col-md-8" >
             <div class="card" >
                 <div class="card-body">
-                    <div class="card-text">
+                    <div class="card-text" >
                         <h4 style="color: #00FF7F; font-weight: bold;">Product Details</h4>
-                        <div class="row placecenter" style="padding: 40px;">
-                            <div class="col-4" style="background-color: white; padding: 10px; margin: 10px;">
-                                <h4 style="color: #001008; font-weight: bold;">Product</h4>
-                                <img src="{{shoeURL}}" alt="" style="width: 250px;height:200px;" />
-                            </div>
-                            <div class="col-4" style="background-color: white; padding: 10px; height: 256px; margin:10px;">
-                        <h4 style="color: #001008; font-weight: bold;">Product Description</h4>
-                        <br>
-                                <table style="width:100% border=1">
-                                    <tr style="color: #010e07;">
-                                      
-                                        <th>Product_Name</th>
-                                        <td>{{Product_Name}}</td>
-                                      </tr>
-                                      <tr style="color: #010e07;">
-                                        <th>Brand</th>
-                                        <td>Heels</td>
-                                                
-                                      <!-- </tr>
-                                      <tr style="color: #010e07;">
-                                        <th>Color</th>
-                                        <td>Black</td>
-
-                                      </tr>
-                                       <tr style="color: #010e07;">
-                                        <th>Size</th>
-                                        <td>Small</td>
-
-                                      </tr> -->
-                                      <!-- <tr style="color: #010e07;">
-                                        <th>Prod_URL</th>
-                                        <td>HTTP</td>
-                                                
-                                      </tr> -->
-                                      <!-- <tr style="color: #010e07;">
-                                        <th>Prod_Price</th>
-                                        <td>See below</td> -->
-
-                                      <!-- </tr>
-                                       <tr style="color: #010e07;">
-                                        <th>Brand</th>
-                                        <td>Swag</td>
-
-                                      </tr> -->
-                                    </table>
-                            </div>
-                          </div>
-                          
-                          <div style="padding: 40px;" class="row placecenter">
-                            <div class="col-sm-4" >
-                            <a style="color:#00FF7F;" href="https://www.amazon.com/adidas-Terrex-Primegreen-Hiking-Shoes/dp/B09418GTTC/ref=sr_1_5?crid=15CGQ65KM5JD1&keywords=shoe&qid=1680219049&sprefix=sho%2Caps%2C230&sr=8-5/"><u><b>Price on Amazon: $120</b></u></a> 
-                            <br>
-                            <a style="color:#00FF7F;"  href="https://www.ebay.com/itm/155374779487?hash=item242d0efc5f:g:2WgAAOSwQM9kJbzl&amdata=enc%3AAQAHAAAA0I9wpSqYBkArrCmWa9xRE%2BduyjZrPZf60m%2FUaxLXkAnxyRZ0MhaNdA7%2B2M1TCUqphUgSKpP0jAtJ9ALMVLmDjGboSh8t40e%2FiYmDOJ18DaKgW%2BHKZpu4XAgHYLt%2FO60sBT39Ob2Gq6LisTo1EF%2FidGgsa1z7mSltUXaY67abxentjYrPvb4%2FL8I0nRXB58Efr2BqHaxqLaJc9Yn5EJNNidi%2BAP7ED4ENjrZ%2FDWHEe1n0TWTupr7R4ZssO1uCxAQnU2O%2FZfz2OcVkBCp4D874np4%3D%7Ctkp%3ABFBM3PLuzeZh/"><u><b>Price on Ebay: $100</b></u></a>
-                            </div>
-                          </div>
-                       
-                    </div>
-                </div>
+                        <!-- <div *ngFor="let product of products_data" style="padding: 10px;" > -->
+                            <div class="container">
+                                <div class="row placecenter border border-2" style="background-color: black; padding: 10px; padding-bottom: 20px;">
+                                    <h5 style="color: white; ">Brand: {{Brand}}</h5>
+                                    <h5 style="color: white; padding-bottom: 10px;">Product Name: {{Product_Name}}</h5>
+                                  <div class="col-md">
+                                    <img src="{{Image_URL}}" height="200" width="200" >
+                                  </div>
+                                  <div class="col-md">
+                                    <h5 style="color: white; padding-bottom: 10px;">
+                                      <a href="https://www.google.com/"><u>Price on Amazon</u></a></h5>
+                                      <!-- {{Amazon_URL}} -->
+                                    <h5 style="color: white; padding-bottom: 10px;">{{Ebay_URL}}</h5>
+                                    <!-- <button (click)="gotoCompareProducts(product)" type="button" class="btn btn-primary" style="background-color: #00FF7F; color: black;  font-family: 'Century Gothic'; font-weight: bold; align-content: center;" >Compare</button> -->
+                                  </div>
+                                </div>
+                              </div>
+                    <!-- </div> -->
             </div>
         </div>
     </div>
