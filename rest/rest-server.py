@@ -1,11 +1,6 @@
 from flask import Flask, request, Response, jsonify
 from pymongo import MongoClient # you may need to install pymongo
-<<<<<<< HEAD
-from bson.json_util import dumps
-# from fake_useragent import UserAgent
-=======
 from fake_useragent import UserAgent
->>>>>>> 3d53d8e2986cea827572c3632d955bf791cdcf0a
 import redis
 import platform
 import os, io
@@ -161,35 +156,6 @@ def fetchData(category, lowPrice, highPrice):
 
 
 # Compare the product - Amazon vs Ebay
-<<<<<<< HEAD
-# @app.route('/compare/<string:amazon_link>/<string:ebay_link', methods=['GET'])
-# def compareProduct(amazon_link, ebay_link):
-#     headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
-#     ua=UserAgent()
-#     hdr = {'User-Agent': ua.random,
-#       'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-#       'Accept-Charset': 'ISO-8859-1,utf-8;q=0.7,*;q=0.3',
-#       'Accept-Encoding': 'none',
-#       'Accept-Language': 'en-US,en;q=0.8',
-#       'Connection': 'keep-alive'}
-#     html_amz = requests.get(amazon_link, headers=hdr)
-#     soup_amz = BeautifulSoup(html_amz.content, 'html.parser')
-#     a_price = soup_amz.find_all('span', class_ ="a-offscreen")[0]
-#     amazon_price = price.text
-#     #print('Price: ', amazon_price)
-
-#     html_eb = requests.get(ebay_link, headers=hdr)
-#     soup_eb = BeautifulSoup(html_eb.content, 'html.parser')
-#     msg = soup_eb.find('span', class_ ="ux-textspans ux-textspans--BOLD")
-#     if msg.text == 'Seller information':
-#         ebay_price = soup_eb.find('span', {'itemprop':"price"}).text.strip()[3:]
-#     else:
-#         ebay_price = 'The item is no longer available'
-#     #print('Price: ', ebay_price)
-#     log_debug(f"Amazon Price: ({amazon_price})")
-#     log_debug(f"Ebay Price: ({ebay_price})")
-#     return
-=======
 def helper(amazonLink, ebayLink):
     log_debug("We are in compare function")
     ua=UserAgent()
@@ -230,7 +196,6 @@ def compareProducts():
     log_debug(f"result: ({finalPrices})")
     response_pickled = str(jsonpickle.encode(finalPrices))
     return Response(response=response_pickled, status=200, mimetype="application/json")
->>>>>>> 3d53d8e2986cea827572c3632d955bf791cdcf0a
 
 # start flask app
 if __name__ == "__main__":
