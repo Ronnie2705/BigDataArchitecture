@@ -80,7 +80,9 @@ import { UserHomeNavbarComponent } from './user-home-navbar/user-home-navbar.com
       {path: 'login', component: LoginComponent},
       {path: 'signup', component: SignupComponent},
       { path: '',component: UserDashFilterComponent},
+      { path: 'userDash',component: UserDashFilterComponent},
       {path:'test', component: TestComponent},
+      {path:'compareProducts', component: ProdCompareComponent},
       { path: 'products',component: ProductsComponent},
     ])
   ],
