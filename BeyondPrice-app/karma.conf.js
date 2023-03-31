@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/mdb-angular-ui-kit-free'),
+      dir: require('path').join(__dirname, './coverage/Beyond-Price'),
       subdir: '.',
       reporters: [
         { type: 'html' },

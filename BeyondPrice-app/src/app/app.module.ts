@@ -4,8 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 
-
-
 // MDB Modules
 import { MdbAccordionModule } from 'mdb-angular-ui-kit/accordion';
 import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
@@ -33,6 +31,12 @@ import { LoginComponent } from './login/login.component';
 import { AboutComponent } from './about/about.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProdCompareComponent } from './prod-compare/prod-compare.component';
+import { UserDashFilterComponent } from './user-dash-filter/user-dash-filter.component';
+
+import { FormsModule } from '@angular/forms';
+import { ProductsComponent } from './products/products.component';
+import { TestComponent } from './test/test.component';
+import { UserHomeNavbarComponent } from './user-home-navbar/user-home-navbar.component';
 
 @NgModule({
   declarations: [
@@ -43,9 +47,14 @@ import { ProdCompareComponent } from './prod-compare/prod-compare.component';
     SignupComponent,
     LoginComponent,
     AboutComponent,
-    ProdCompareComponent
+    ProdCompareComponent,
+    UserDashFilterComponent,
+    ProductsComponent,
+    TestComponent,
+    UserHomeNavbarComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     BrowserAnimationsModule,
     MdbAccordionModule,
@@ -70,8 +79,10 @@ import { ProdCompareComponent } from './prod-compare/prod-compare.component';
       {path: 'about', component: AboutComponent},
       {path: 'login', component: LoginComponent},
       {path: 'signup', component: SignupComponent},
-      { path: '',component: ProdCompareComponent},
-    ]), 
+      { path: '',component: UserDashFilterComponent},
+      {path:'test', component: TestComponent},
+      { path: 'products',component: ProductsComponent},
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]

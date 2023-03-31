@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {MatSelectModule} from '@angular/material/select';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'mdb-angular-ui-kit-free';
+  title = 'Beyond-Price';
 }
