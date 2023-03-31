@@ -8,7 +8,6 @@ import { Router } from '@angular/router';
 export class RestService {
   postSignupURL= "http://localhost/apiv1/signup"
   data: any;
-  router: any;
 
   
   constructor(private http:HttpClient, private router: Router) { }

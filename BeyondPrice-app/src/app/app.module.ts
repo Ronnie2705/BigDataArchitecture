@@ -75,9 +75,9 @@ import { UserHomeNavbarComponent } from './user-home-navbar/user-home-navbar.com
       {path: 'login', component: LoginComponent},
       {path: 'signup', component: SignupComponent},
       { path: '',component: HomeComponent},
-      {path:'test', component: TestComponent}
-      // { path: 'products',component: ProductsComponent},
-    ]),
+      {path:'test', component: TestComponent},
+      { path: 'products',component: ProductsComponent},
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
