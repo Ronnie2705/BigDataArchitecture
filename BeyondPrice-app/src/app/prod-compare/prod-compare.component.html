@@ -1,0 +1,31 @@
+<app-navbar></app-navbar>
+<div class="pd">
+    <div class="row placecenter" >
+        <div class="col-md-8" >
+            <div class="card" >
+                <div class="card-body">
+                  <div *ngIf="isLoading" style="color: #00FF7F; font-weight: bold;" > Loading ... </div>
+                    <div  *ngIf="isLoading == false" class="card-text" >
+                        <h4 style="color: #00FF7F; font-weight: bold;">Product Details</h4>
+                        <!-- <div *ngFor="let product of products_data" style="padding: 10px;" > -->
+                            <div class="container">
+                                <div class="row placecenter border border-2" style="background-color: black; padding: 10px; padding-bottom: 20px; height: 500px;">
+                                    <h5 style="color: white; ">Brand: {{Brand}}</h5>
+                                    <h5 style="color: white; padding-bottom: 10px;">Product Name: {{Product_Name}}</h5>
+                                  <div class="col-md">
+                                    <img src="{{Image_URL}}" height="200" width="200" >
+                                  </div>
+                                  <div class="col-md">
+                                    <h5 style="color: white; padding-bottom: 10px;">
+                                      <a href="{{Amazon_URL}}" style="color: white;"><u>Price on Amazon {{price[0]}}</u></a><br><br>
+                                      <a href="{{Ebay_URL}}" style="color: white;"><u>Price on Ebay {{price[1]}}</u></a>
+                                    </h5>
+                                    </div>
+                                </div>
+                              </div>
+                    <!-- </div> -->
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

@@ -30,6 +30,7 @@ import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { AboutComponent } from './about/about.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProdCompareComponent } from './prod-compare/prod-compare.component';
 import { UserDashFilterComponent } from './user-dash-filter/user-dash-filter.component';
 
 import { FormsModule } from '@angular/forms';
@@ -46,6 +47,7 @@ import { UserHomeNavbarComponent } from './user-home-navbar/user-home-navbar.com
     SignupComponent,
     LoginComponent,
     AboutComponent,
+    ProdCompareComponent,
     UserDashFilterComponent,
     ProductsComponent,
     TestComponent,
@@ -77,8 +79,10 @@ import { UserHomeNavbarComponent } from './user-home-navbar/user-home-navbar.com
       {path: 'about', component: AboutComponent},
       {path: 'login', component: LoginComponent},
       {path: 'signup', component: SignupComponent},
-      { path: '',component: UserDashFilterComponent},
+      { path: '',component: ProdCompareComponent},
+      { path: 'userDash',component: UserDashFilterComponent},
       {path:'test', component: TestComponent},
+      {path:'compareProducts', component: ProdCompareComponent},
       { path: 'products',component: ProductsComponent},
     ])
   ],
