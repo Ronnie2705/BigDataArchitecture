@@ -19,9 +19,11 @@ export class ProdCompareComponent implements OnInit{
 
 
   price: object;
+  public isLoading: boolean = false;
 
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.route.queryParams.subscribe((params: any)=> {
       this.Brand = params.Brand
       this.Product_Name = params.Product_Name
@@ -36,10 +38,11 @@ export class ProdCompareComponent implements OnInit{
     const compare_url = 'http://localhost/apiv1/compareProducts';
 
     this.http.post(compare_url,URL_data).subscribe(resp=>{
+      this.isLoading = false;
       this.price  = resp
       console.log("price",resp)
       return resp
-  }
+  }, err => { this.isLoading = false; }
     );
 
 

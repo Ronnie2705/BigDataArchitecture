@@ -174,6 +174,7 @@ def helper(amazonLink, ebayLink):
     html_eb = requests.get(ebayLink, headers=hdr)
     soup_eb = BeautifulSoup(html_eb.content, 'html.parser')
     msg = soup_eb.find('span', class_ ="ux-textspans ux-textspans--BOLD")
+    log_debug(f"msg : ({msg})")
     if msg.text == 'Seller information':
         ebay_price = soup_eb.find('span', {'itemprop':"price"}).text.strip()[3:]
     else:
