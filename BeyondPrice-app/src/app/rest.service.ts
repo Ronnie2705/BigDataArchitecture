@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 })
 export class RestService {
   postSignupURL= "http://localhost/apiv1/signup"
+  data: any;
 
   
   constructor(private http:HttpClient, private router: Router) { }
@@ -39,4 +40,16 @@ export class RestService {
       // }
     });
   }
+
+  // getProducts(){
+    
+  //   this.http.get("http://localhost/apiv1/fetchData/Mobiles/45.00/362.17").subscribe(resp=>{
+  //     this.data = resp
+  //     console.log("jhansi",resp)
+  //     return resp
+  // }
+  //   );
+  //   console.log("swaps",this.data)
+  //   return this.data
+  // }
 }

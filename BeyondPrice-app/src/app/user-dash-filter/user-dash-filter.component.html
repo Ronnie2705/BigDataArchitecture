@@ -1,0 +1,69 @@
+<app-user-home-navbar></app-user-home-navbar>
+<div style="padding-top: 30px; text-align: center; align-content: center;">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card placecenter" >
+                <div class="card-body">
+                    <div class="card-text">
+                        <h3><b>SHOES</b></h3>
+                        <img src="{{shoesURL}}" alt="" style="width: 150px;height:150px;" />
+                        <select  class="btn btn-primary dropdown-toggle" style="background-color: #2cc61b;" [(ngModel)]="valueFromSelect" (change)="onSelected()" >
+                            <option [ngValue]="valueFromSelect" selected disabled>Select Price</option>
+                            <option value="Shoes/10/70"><b>$10 - $70</b></option>
+                            <option value="Shoes/70/160"><b>$70 - $160</b></option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card placecenter" >
+                <div class="card-body">
+                    <div class="card-text">
+                        <h3><b>BAGS</b></h3>
+                        <img src="{{bagURL}}" alt="" style="width: 150px;height:150px;" />
+
+                        <select  class="btn btn-primary dropdown-toggle" style="background-color: #2cc61b;" [(ngModel)]="valueFromSelect" (change)="onSelected()" >
+                            <option [ngValue]="valueFromSelect" selected disabled>Select Price</option>
+                            <option value="BagPacks/10/45"><b>$10 - $45</b></option>
+                            <option value="BagPacks/45/160"><b>$45 - $160</b></option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card placecenter" >
+                <div class="card-body">
+                    <div class="card-text">
+                        <h3><b>MOBILES</b></h3>
+                        <img src="{{mobileURL}}" alt="" style="width: 150px;height:150px;" />
+                        <select  class="btn btn-primary dropdown-toggle" style="background-color: #2cc61b;" [(ngModel)]="valueFromSelect" (change)="onSelected()" >
+                            <option [ngValue]="valueFromSelect" selected disabled>Select Price</option>
+                            <option value="Mobiles/40/360"><b>$40 - $360</b></option>
+                            <option value="Mobiles/360/1000"><b>$360 - $1000</b></option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card placecenter" >
+                <div class="card-body">
+                    <div class="card-text">
+                        <h3><b>LAPTOPS</b></h3>
+                        <img src="{{laptopURL}}" alt="" style="width: 150px;height:150px;" />
+                        <select  class="btn btn-primary dropdown-toggle" style="background-color: #2cc61b;" [(ngModel)]="valueFromSelect" (change)="onSelected()" >
+                            <option [ngValue]="valueFromSelect" selected disabled>Select Price</option>
+                            <option value="Laptops/220/750"><b>$220 - $750</b></option>
+                            <option value="Laptops/750/1300"><b>$750 - $1300</b></option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+</div>
+<app-footer></app-footer>
+
