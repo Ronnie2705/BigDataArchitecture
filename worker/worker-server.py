@@ -40,7 +40,7 @@ def log_info(message, key=infoKey):
     redisClient.lpush('logging', f"{infoKey}:{message}")
 
 # Fetch records from database and declaring the redis key 
-products_with_sentiment_score= "TopFiveProducts"
+
 def fetchAllRecords(category, low_price, high_price):
     
     log_debug(f"Category: ({category})")
@@ -49,6 +49,8 @@ def fetchAllRecords(category, low_price, high_price):
     # Make a query to get data from mongodb
     db = client['BeyondPrice']
     products = db['Products']
+
+    products_key= category + " " + low_price + " " + high_price
 
     # list of dictionaries
     list_products = []
@@ -66,16 +68,16 @@ def fetchAllRecords(category, low_price, high_price):
             prod_spec['Sentiment Score'] = prod['sentiment_score_vd']
             list_products.append(prod_spec)
 
-    # Limit the records based on sentiment score
+    # Limit the records based on sentiment score, in descendeing order
     sortedList = sorted(list_products, key=lambda d: d['Sentiment Score'], reverse=True)
     topFiveProducts = sortedList[0:5]
     # log_debug(f"topFiveProducts: ({topFiveProducts})")
 
     #After fetching the records from db, push it to redis
-    redisClient = redis.StrictRedis(host=redisHost, port = redisPort, db=0)
+    redisClient = redis.StrictRedis(host=redisHost, port = redisPort, db=0, decode_responses=True)
     jsonData = json.dumps(topFiveProducts)
     log_debug(f"jsonData: ({jsonData})")
-    redisClient.lpush(products_with_sentiment_score, jsonData)
+    redisClient.set(products_key, jsonData)
 
 
 def callback(ch, method, properties, body):

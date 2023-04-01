@@ -10,6 +10,7 @@ import json
 import requests
 import pika
 from bs4 import BeautifulSoup
+import time
 
 
 # import mysql.connector
@@ -23,7 +24,7 @@ REST = os.getenv("REST") or "localhost:5000"
 
 print(f"Connecting to redis({redisHost}:{redisPort})")
 
-redisClient = redis.StrictRedis(host=redisHost, port = redisPort, db=0)
+redisClient = redis.StrictRedis(host=redisHost, port = redisPort, db=0, decode_responses=True)
 rabbitMQHost = os.getenv("RABBITMQ_HOST") or "localhost"
 
 infoKey = "{}.rest.info".format(platform.node())
@@ -124,9 +125,17 @@ def fetchData(category, lowPrice, highPrice):
     try:
         log_debug("Fetching the data from redis")            
         redis_data = redisClient.exists(curr_key)
+
         if(redis_data):
             log_debug("Data is present in redis:", {redis_data})
             print("Data is present in redis:", {redis_data})
+
+            list_of_sorted_products=redisClient.get(curr_key) 
+            value = list_of_sorted_products
+            
+            topFiveProducts=json.loads(value)
+            response_pickled = str(jsonpickle.encode(topFiveProducts))
+            return Response(response=response_pickled, status=200, mimetype="application/json")
         else:               
             log_debug("Data is not present in redis:", {redis_data})
             print("Data is not present in redis:", {redis_data})
@@ -134,19 +143,19 @@ def fetchData(category, lowPrice, highPrice):
             # Pass the parameters to worker using rabbitmq
             input_data = curr_key
             subscribeToRMQ(input_data)
+            time.sleep(5)
         
     except Exception as exp:
         log_debug("Exception raised in log loop:", {str(exp)})
         print(f"Exception raised in log loop: {str(exp)}")
      
     # Fetch the top 5 records based on sentiment score from redis and declaring the key
-    products_with_sentiment_score= "TopFiveProducts"
+    # products_with_sentiment_score= "TopFiveProducts"
     log_debug("Fetching the data from redis, based on sentiment score")
 
-    list_of_sorted_products=redisClient.blpop(products_with_sentiment_score, timeout=0)
-    
-    value= list_of_sorted_products[1].decode()
-    
+    list_of_sorted_products=redisClient.get(curr_key)
+    log_debug(f"list_of_sorted_products: ({list_of_sorted_products})")
+    value= list_of_sorted_products
     topFiveProducts=json.loads(value)
     log_debug(f"topFiveProducts: ({topFiveProducts})")
 
@@ -183,8 +192,6 @@ def helper(amazonLink, ebayLink):
     log_debug(f"Amazon Price: ({amazon_price})")
     log_debug(f"Ebay Price: ({ebay_price})")
 
-    
-    
     return amazon_price, ebay_price
 
 @app.route('/apiv1/compareProducts', methods=['POST'])
