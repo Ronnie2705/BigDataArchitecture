@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { delay } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,9 @@ export class RestService {
       // value= response.
       if(response){
         console.log("Welcome" + firstName);
-        this.router.navigate(['/login']);
+        
+          this.router.navigate(['/login']);
+        
       }
     });
   }
@@ -33,7 +36,12 @@ export class RestService {
     // return this.http.post(this.postSignupURL,data).subscribe()
     this.http.post(this.postloginURL, data).subscribe(response => {
       console.log(response);
-      
+      if(response){
+        //console.log("Welcome" + firstName);
+        
+          this.router.navigate(['/user-dash-filter']);
+        
+      }
       // value= response.
       // if(response.toString()=="SignUp is complete!"){
       //   console.log("Welcome" + firstName);
