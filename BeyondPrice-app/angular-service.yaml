@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: angular-service
+spec:
+  selector:
+    app: angular
+  ports:
+    - protocol: TCP
+      port: 90
+      targetPort: 80
+  type: NodePort

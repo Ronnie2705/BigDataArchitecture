@@ -16,6 +16,10 @@ kubectl config set-context --current --namespace=bigdata
 kubectl -n bigdata apply -f redis/redis-deployment.yaml
 kubectl -n bigdata apply -f redis/redis-service.yaml
 
+#angular
+kubectl -n bigdata apply -f BeyondPrice-app/angular-deployment.yaml
+kubectl -n bigdata apply -f BeyondPrice-app/angular-service.yaml
+
 # rabbitMq
 kubectl -n bigdata apply -f rabbitmq/rabbitmq-deployment.yaml
 kubectl -n bigdata apply -f rabbitmq/rabbitmq-service.yaml
@@ -41,3 +45,4 @@ kubectl -n bigdata apply -f worker/worker-deployment.yaml
 # portforwarding 
 kubectl port-forward --address 0.0.0.0 service/redis 6379:6379 &
 # kubectl port-forward --address 0.0.0.0 service/mongodb 27017:27017 &
+kubectl port-forward service/angular-service 80:90
