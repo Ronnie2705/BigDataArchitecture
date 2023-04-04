@@ -1,10 +1,11 @@
-<app-navbar></app-navbar>
+<app-user-home-navbar></app-user-home-navbar>
 <div class="pd">
     <div class="row placecenter" >
         <div class="col-md-8" >
             <div class="card" >
                 <div class="card-body">
-                    <div class="card-text" >
+                  <div *ngIf="isLoading" style="color: #00FF7F; font-weight: bold;" > Loading ... </div>
+                    <div *ngIf="isLoading == false" class="card-text" >
                         <h4 style="color: #00FF7F; font-weight: bold;">Top Five Products</h4>
                         <div *ngFor="let product of products_data" style="padding: 10px;" >
                             <div class="container">

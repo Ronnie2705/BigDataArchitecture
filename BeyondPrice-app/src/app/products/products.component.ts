@@ -11,20 +11,24 @@ export class ProductsComponent  implements OnInit  {
   data_URL: string;
   products_data: Object;
   product_data: object;
+  public isLoading: boolean = false;
 
   constructor(private route: ActivatedRoute,private router: Router,private http:HttpClient){
 }
   ngOnInit(): void {
+    this.isLoading = true;
     this.route.queryParams.subscribe((params: any)=> {
       this.data_URL = params.url
     })
 
     console.log(this.data_URL)
+    
     this.http.get("http://localhost/apiv1/fetchData/"+this.data_URL).subscribe(resp=>{
+      this.isLoading = false;
       this.products_data = resp
       console.log("jhansi",resp)
       return resp
-  }
+  }, err => { this.isLoading = false; }
     );
   }
 
