@@ -8,6 +8,7 @@ import { RestService } from '../rest.service';
 })
 export class SignupComponent {
   validationForm: FormGroup;
+  showpassword: boolean = false;
 
   constructor(private api:RestService) {
     this.validationForm = new FormGroup({
@@ -53,5 +54,13 @@ export class SignupComponent {
     ,this.validationForm.get('email').value
     ,this.validationForm.get('phone').value
     ,this.validationForm.get('userPassword').value)
+  }
+
+  togglePasswordVisibility(){
+    this.showpassword = !this.showpassword;
+  }
+
+  toggleconfPasswordVisibility(){
+    this.showpassword = !this.showpassword;
   }
 }

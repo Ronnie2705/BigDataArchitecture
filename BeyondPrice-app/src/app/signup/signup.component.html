@@ -79,18 +79,20 @@
                               </mdb-form-control>
                               <br>
                                 <mdb-form-control>
-                                    <input  mdbValidate mdbInput type="password" id="userPassword" class="form-control" formControlName="userPassword"  required placeholder="Password"/>
-                                   
+                                    <!-- <input  mdbValidate mdbInput type="password" id="userPassword" class="form-control" formControlName="userPassword"  required placeholder="Password"/> -->
+                                    <input mdbValidate  mdbInput type="password" id="userPassword"  [(ngModel)]="validationForm.value.password" type = "{{showpassword ? 'text' : 'password'}}" class="form-control" formControlName="Password" required placeholder="Password"/>
                                     <mdb-error *ngIf="userPassword?.invalid && (userPassword?.dirty || userPassword?.touched)"
                                     >Password is required</mdb-error
                                   >
+                                  <button (click)="togglePasswordVisibility()">{{showpassword ? 'Hide' : 'Show'}} Password</button>
                                   <mdb-success *ngIf="userPassword?.valid && (userPassword?.dirty || userPassword?.touched)"
                                     >Looks good!</mdb-success
                                   >
                                 </mdb-form-control>
                                 <br>
                                 <mdb-form-control>
-                                  <input mdbValidate  mdbInput type="password" id="confirmPassword" class="form-control" formControlName="confirmPassword" required placeholder="Confirm Password"/>
+                                  <!-- <input mdbValidate  mdbInput type="password" id="confirmPassword"  class="form-control" formControlName="confirmPassword" required placeholder="Confirm Password"/> -->
+                                  <input mdbValidate  mdbInput type="password" id="confirmPassword"  [(ngModel)]="validationForm.value.password" type = "{{showpassword ? 'text' : 'password'}}" class="form-control" formControlName="confirmPassword" required placeholder="Confirm Password"/>
                                   
                                   <mdb-error *ngIf="userPassword?.invalid && (confirmPassword?.dirty || confirmPassword?.touched)"
                                     >Confirm Password is required</mdb-error
@@ -98,7 +100,9 @@
                                   <mdb-success *ngIf="confirmPassword?.valid && (confirmPassword?.dirty || confirmPassword?.touched)"
                                     >Looks good!</mdb-success
                                   >
+                                  
                                 </mdb-form-control>
+                                <button (click)="toggleconfPasswordVisibility()">{{showpassword ? 'Hide' : 'Show'}} Password</button>
                               <button type="submit" class="btn btn-primary mt-4" style="background-color: #00FF7F; color: black;">Submit</button>
                         </div> 
                             

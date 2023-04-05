@@ -16,7 +16,10 @@
             </div>
             <div class="mb-3">
               <label for="password" class="form-label">Password</label>
-              <input type="password" class="form-control" id="password" formControlName="password" required>
+              <input type="password" class="form-control" id="password" [(ngModel)]="loginForm.value.password" type = "{{showpassword ? 'text' : 'password'}}" formControlName="password" required >
+              <!-- <input type ="checkbox" [(ngModel)] = "showpassword">Show Password -->
+              <button (click)="togglePasswordVisibility()">{{showpassword ? 'Hide' : 'Show'}} Password</button>
+              <!-- <input type="password" class="form-control" id="password" formControlName="password" required > -->
               <!-- <div class="invalid-feedback" *ngIf="loginForm.get('password').invalid && (loginForm.get('password').dirty || loginForm.get('password').touched)">
                 Please provide a valid password.
               </div> -->
