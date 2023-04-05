@@ -10,7 +10,7 @@ export class RestService {
   postSignupURL= "http://localhost/apiv1/signup"
   data: any;
 
-  
+  resp:any;
   constructor(private http:HttpClient, private router: Router) { }
   
   postSignupData(firstName:string,lastName:string,email:string,phoneNumber:string,password:string){
@@ -33,15 +33,17 @@ export class RestService {
   postlogin(email:string,password:string){
     const data = {email:email,password:password };
     console.log(data)
+    
     // return this.http.post(this.postSignupURL,data).subscribe()
     this.http.post(this.postloginURL, data).subscribe(response => {
-      console.log(response);
-      if(response){
+      this.resp=response;
+      console.log("response status",this.resp);
+      if(response== "Incorrect Email or Password"){
         //console.log("Welcome" + firstName);
-        
-          this.router.navigate(['/user-dash-filter']);
-        
+        console.log("Inside the function");
       }
+      else{
+      this.router.navigate(['/userDash']);}
       // value= response.
       // if(response.toString()=="SignUp is complete!"){
       //   console.log("Welcome" + firstName);
