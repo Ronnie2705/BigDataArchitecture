@@ -3,14 +3,20 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { delay } from 'rxjs';
 
+export interface Response {
+  message: string
+}
+
 @Injectable({
   providedIn: 'root'
 })
+
+
+
 export class RestService {
   postSignupURL= "http://localhost/apiv1/signup"
   data: any;
 
-  resp:any;
   constructor(private http:HttpClient, private router: Router) { }
   
   postSignupData(firstName:string,lastName:string,email:string,phoneNumber:string,password:string){
@@ -28,26 +34,26 @@ export class RestService {
       }
     });
   }
-
+ 
   postloginURL= "http://localhost/apiv1/login"
   postlogin(email:string,password:string){
     const data = {email:email,password:password };
-    console.log(data)
+    // console.log(data)
     
     // return this.http.post(this.postSignupURL,data).subscribe()
-    this.http.post(this.postloginURL, data).subscribe(response => {
-      this.resp=response;
-      console.log("response status",this.resp);
-      if(response== "Incorrect Email or Password"){
+    this.http.post<Response>(this.postloginURL, data).subscribe(res => {
+      // console.log("value1",res) ;
+      console.log("Message:",res.message);
+      if(res.message=="Incorrect Email or Password"){
         //console.log("Welcome" + firstName);
-        console.log("Inside the function");
+        alert(res.message);
       }
       else{
-      this.router.navigate(['/userDash']);}
-      // value= response.
-      // if(response.toString()=="SignUp is complete!"){
-      //   console.log("Welcome" + firstName);
-      // }
+        console.log("Inside the function2");
+        this.router.navigate(['/userDash']);
+      }
+     
+      
     });
   }
 

@@ -65,13 +65,13 @@ def login():
 
     user = users_collection.find_one({'email': email, 'password': password})
     if user:
-        result = {"Welcome!"}
+        result = {'message': "Welcome!"}
         response_pickled = str(jsonpickle.encode(result))
         return Response(response=response_pickled, status=200, mimetype="application/json")
     else:
-        result = {"Incorrect Email or Password"}
+        result = {'message':"Incorrect Email or Password"}
         response_pickled = str(jsonpickle.encode(result))
-        return Response(response=response_pickled, status=400, mimetype="application/json")
+        return Response(response=response_pickled, status=200, mimetype="application/json")
     
 @app.route('/apiv1/signup', methods = ['POST'])
 def signup():
