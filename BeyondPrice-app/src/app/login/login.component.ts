@@ -9,8 +9,10 @@ import { RestService } from '../rest.service';
 })
 export class LoginComponent {
   loginForm: FormGroup;
+  showpassword: boolean = false;
 
-  constructor(private api:RestService) { this.loginForm = new FormGroup({
+  constructor(private api:RestService) 
+  { this.loginForm = new FormGroup({
     email: new FormControl(null, {  updateOn: 'submit' }),
     password: new FormControl(null, {  updateOn: 'submit' }),
 
@@ -25,6 +27,10 @@ export class LoginComponent {
     console.log(this.loginForm.get('email').value)
     this.api.postlogin(this.loginForm.get('email').value
     ,this.loginForm.get('password').value)
+  }
+
+  togglePasswordVisibility(){
+    this.showpassword = !this.showpassword;
   }
   
 }
