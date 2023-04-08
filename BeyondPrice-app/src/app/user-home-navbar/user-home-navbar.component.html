@@ -1,63 +1,27 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: rgba(0, 0, 1, 0.8)">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="./home"><img src="{{logoURL}}" height="40" width="100"></a>
+    <!-- Toggle button -->
+    <button class="navbar-toggler" type="button" (click)="rightAligned.toggle()" aria-controls="navbarRightAlignExample" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button>
 
-<nav class="navbar navbar-expand-md navbar-dark fixed-top " style=" background-color: rgba(0, 0, 1, 0.8)">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="./home"><img src="{{logoURL}}" height="40" width="100" ></a>
-       <!-- Toggle button -->
-    <button
-    class="navbar-toggler"
-    type="button"
-    (click)="rightAligned.toggle()"
-    aria-controls="navbarRightAlignExample"
-    aria-expanded="false"
-    aria-label="Toggle navigation"
-  >
-    <i class="fas fa-bars"></i>
-  </button>
-
-  <!-- Collapsible wrapper -->
-  <div
-    class="collapse navbar-collapse" 
-    id="navbarRightAlignExample"
-    mdbCollapse
-    #rightAligned="mdbCollapse" 
-  >
-    <!-- Left links -->
-    <ul class="navbar-nav ms-auto me-3 me-lg-1">
-      <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="/home" style="color: #00FF7F; font-weight: bold; ">{{user_name}}</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="/about" style="color: #00FF7F; font-weight: bold; ">About</a>
-      </li>
-       <!-- Icon dropdown -->
-       <li mdbDropdown class="nav-item dropdown">
-        <a
-          class="nav-link dropdown-toggle" 
-          href="#" style="color: #00FF7F; font-weight: bold;"
-          id="navbarDropdownMenuLink"
-          role="button"
-          mdbDropdownToggle
-          aria-expanded="false"
-        >
-          <i class="fas fa-user"></i>
-        </a>
-        <ul
-          mdbDropdownMenu 
-          class="dropdown-menu dropdown-menu-end" style=" background-color: rgba(0, 0, 1, 0.8); margin-top: 15px;"
-          aria-labelledby="navbarDropdownMenuLink"
-        >
-          <li>
-            <a class="dropdown-item" href="#" style="color: #00FF7F; font-weight: bold;">Profile</a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="/login" style="color: #00FF7F; font-weight: bold; ">Logout</a>
-          </li>
-        </ul>
-      </li>
-    </ul>
-    <!-- Left links -->
-     </div>
-    <!-- Collapsible wrapper --> 
-     </div>
-    </nav>
-
+    <!-- Collapsible wrapper -->
+    <div class="collapse navbar-collapse" id="navbarRightAlignExample" mdbCollapse #rightAligned="mdbCollapse">
+      <!-- Left links -->
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item me-3">
+          <span class="navbar-text" style="color: #00FF7F; font-weight: bold;">{{user_name}}</span>
+        </li>
+        <!-- Icon dropdown -->
+        <li mdbDropdown class="nav-item dropdown">
+          <a style="color: #00FF7F; font-weight: bold;" role="button" aria-expanded="false" href="#">
+            <i class="fas fa-sign-out-alt"></i>
+          </a>
+        </li>
+      </ul>
+      <!-- Left links -->
+    </div>
+    <!-- Collapsible wrapper -->
+  </div>
+</nav>
