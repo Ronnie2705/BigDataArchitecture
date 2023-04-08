@@ -9,20 +9,28 @@
           <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <div class="mb-3">
               <label for="email" class="form-label">Email address</label>
+              <div class="input-group">
               <input type="email" class="form-control" id="email" formControlName="email" required>
-              <!-- <div class="invalid-feedback" *ngIf="loginForm.get('email').invalid && (loginForm.get('email').dirty || loginForm.get('email').touched)">
-                Please provide a valid email.
-              </div> -->
+              <div class="input-group-append">
+                <span class="input-group-text show-hide-button" style="background-color: white; outline-color: #ffffff;" >
+                  <i class="fa fa-envelope" style="z-index: 3; color: #000000; outline-color: #ffffff;" ></i>
+                  <!-- <i class="fa fa-eye-slash" style="z-index: 3;"  *ngIf="!showPassword"></i> -->
+                </span>
+              </div>
             </div>
-            <div class="mb-3">
+            </div>
+            <div class="mb-3 password-input">
+              
               <label for="password" class="form-label">Password</label>
-              <input type="password" class="form-control" id="password" [(ngModel)]="loginForm.value.password" type = "{{showpassword ? 'text' : 'password'}}" formControlName="password" required >
-              <!-- <input type ="checkbox" [(ngModel)] = "showpassword">Show Password -->
-              <button (click)="togglePasswordVisibility()">{{showpassword ? 'Hide' : 'Show'}} Password</button>
-              <!-- <input type="password" class="form-control" id="password" formControlName="password" required > -->
-              <!-- <div class="invalid-feedback" *ngIf="loginForm.get('password').invalid && (loginForm.get('password').dirty || loginForm.get('password').touched)">
-                Please provide a valid password.
-              </div> -->
+              <div class="input-group">
+              <input type="{{showPassword ? 'text' : 'password'}}"  class="form-control" id="password" name="password" [(ngModel)]="password">
+                <div class="input-group-append">
+                  <span class="input-group-text show-hide-button"   (click)="showPassword = !showPassword">
+                    <i class="fa fa-eye" style="z-index: 3;"  *ngIf="showPassword"></i>
+                    <i class="fa fa-eye-slash" style="z-index: 3;"  *ngIf="!showPassword"></i>
+                  </span>
+                </div>
+              </div>
             </div>
             <button type="submit" class="btn btn-primary">Login</button>
           </form>
@@ -32,5 +40,25 @@
   </div>
 </div>
 
-
 <app-footer></app-footer>
+
+<style>
+  .password-input {
+    position: relative;
+  }
+
+  .password-input .show-hide-button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    background-color: #ffffff;
+    border: none;
+    padding: 0 10px;
+    cursor: pointer;
+  }
+
+  .password-input .show-hide-button i {
+    color: #000000;
+  }
+</style>
