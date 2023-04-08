@@ -34,11 +34,21 @@ kubectl -n bigdata apply -f logs/logs-deployment.yaml
 
 kubectl -n bigdata apply -f worker/worker-deployment.yaml
 
-kubectl -n bigdata apply -f mongodb/mongodb-secrets.yaml
-kubectl -n bigdata create configmap mongodb-config-file --from-file=conf=mongodb/mongodb.conf
-kubectl -n bigdata apply -f mongodb/mongodb-pvc.yaml
-kubectl -n bigdata apply -f mongodb/mongodb-service.yaml
-kubectl -n bigdata apply -f mongodb/mongodb-deployment.yaml
+#angular
+kubectl -n bigdata apply -f BeyondPrice-app/angular-deployment.yaml
+kubectl -n bigdata apply -f BeyondPrice-app/angular-service.yaml
+
+# rabbitMq
+kubectl -n bigdata apply -f rabbitmq/rabbitmq-deployment.yaml
+kubectl -n bigdata apply -f rabbitmq/rabbitmq-service.yaml
+
+kubectl port-forward service/angular-service 80:90
+
+# kubectl -n bigdata apply -f mongodb/mongodb-secrets.yaml
+# kubectl -n bigdata create configmap mongodb-config-file --from-file=conf=mongodb/mongodb.conf
+# kubectl -n bigdata apply -f mongodb/mongodb-pvc.yaml
+# kubectl -n bigdata apply -f mongodb/mongodb-service.yaml
+# kubectl -n bigdata apply -f mongodb/mongodb-deployment.yaml
 
 # kubectl port-forward --address 0.0.0.0 service/redis 6379:6379 &
 # kubectl port-forward --address 0.0.0.0 service/mongodb 27017:27017 &
