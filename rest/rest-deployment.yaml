@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: rest
-        image: bhawneet1034/bigdata-rest:v1
+        image: jhansisaketa/bigdata-rest:v1
         ports:
         - containerPort: 5000
         env:
@@ -33,3 +33,5 @@ spec:
             value : "6379"
           - name: RABBITMQ_HOST
             value: rabbitmq
+          - name: http
+            value: "80"

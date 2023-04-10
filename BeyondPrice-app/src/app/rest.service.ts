@@ -35,7 +35,7 @@ export class RestService {
     });
   }
  
-  postloginURL= "http://localhost/apiv1/login"
+  postloginURL= "/apiv1/login"
   postlogin(email:string,password:string){
     const data = {email:email,password:password };
     // console.log(data)
