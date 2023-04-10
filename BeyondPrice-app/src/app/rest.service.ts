@@ -45,13 +45,13 @@ export class RestService {
     this.http.post<Response>(this.postloginURL, data).subscribe(res => {
       // console.log("value1",res) ;
       console.log("Message:",res.message);
-      if(res.message=="Welcome"){
-        console.log("Welcome to our portal");
-        this.router.navigate(['/userDash']);
+      if(res.message=="Incorrect Email or Password" || res.message==undefined){
+        alert("Incorrect Email or Password");     
         
       }
       else{
-        alert(res.message);
+        console.log("Welcome to our portal");
+        this.router.navigate(['/userDash']);
       }
      
       
