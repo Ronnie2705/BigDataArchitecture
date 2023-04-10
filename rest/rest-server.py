@@ -65,7 +65,8 @@ def login():
 
     user = users_collection.find_one({'email': email, 'password': password})
     if user:
-        result = {'message': "Welcome"}
+        First_name = user['firstname']
+        result = {'message': "Welcome " + First_name + "!" }
         response_pickled = str(jsonpickle.encode(result))
         return Response(response=response_pickled, status=200, mimetype="application/json")
     else:

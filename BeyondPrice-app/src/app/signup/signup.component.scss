@@ -7,6 +7,7 @@
 
 .card{
     background-color: rgba(0, 0, 1, 0.8);
+    
 }
 
 .button{
@@ -14,3 +15,54 @@
     align-items: right;
   }
   
+  .password-input {
+    position: relative;
+  }
+  
+  // .password-input .show-hide-button {
+  //   position: absolute;
+  //   right: 0;
+  //   top: 0;
+  //   height: 100%;
+  //   background-color: #ffffff;
+  //   border: none;
+  //   padding: 0 10px;
+  //   cursor: pointer;
+  // }
+  
+  // .password-input .show-hide-button i {
+  //   color: #000000;
+  // }
+  
+  .show-password-icon {
+    background-color: #fff;
+    border: none;
+    border-left: none;
+    cursor: pointer;
+    height: calc(1.5em + .55rem + 2px);
+    align-items: center;
+  }
+  
+  // .show-password-icon i {
+  //   color: #000;
+  // }
+  
+  .show-password-icon i {
+    color: #ebe1e1;
+    margin-right: 5px;
+    align-items: center;
+  }
+  
+
+  ::placeholder{
+    color: white;
+  }
+  .fa{
+    color: white;
+  }
+
+  
+
+  
+
+ 

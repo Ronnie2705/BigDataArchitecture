@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { delay } from 'rxjs';
+import { query } from '@angular/animations';
 
 export interface Response {
   message: string
