@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { delay } from 'rxjs';
+import { query } from '@angular/animations';
 
 export interface Response {
   message: string
@@ -44,12 +45,12 @@ export class RestService {
     this.http.post<Response>(this.postloginURL, data).subscribe(res => {
       // console.log("value1",res) ;
       console.log("Message:",res.message);
-      if(res.message=="Incorrect Email or Password"){
-        //console.log("Welcome" + firstName);
-        alert(res.message);
+      if(res.message=="Incorrect Email or Password" || res.message==undefined){
+        alert("Incorrect Email or Password");     
+        
       }
       else{
-        console.log("Inside the function2");
+        console.log("Welcome to our portal");
         this.router.navigate(['/userDash']);
       }
      

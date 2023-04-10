@@ -43,3 +43,6 @@ kubectl get ingress frontend-ingress --output yaml
 # delete your cluster
 gcloud container clusters delete mykube
 
+# To see external ip address in your angular pod
+kubectl get svc
+
