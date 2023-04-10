@@ -55,7 +55,7 @@ users_collection = db["UserData"]
 # We need this default route since Google Kubernetes Engine checks for the health of our services(if we deploy to the cloud)
 @app.route('/', methods=['GET'])
 def hello():
-    return '<h1> Welcome to Voice-based music search service</h1><p> Use a valid endpoint </p>'
+    return '<h1> Welcome to BeyondPrice application</h1><p> Use a valid endpoint </p>'
 
 @app.route('/apiv1/login', methods=['POST'])
 def login():
@@ -65,7 +65,7 @@ def login():
 
     user = users_collection.find_one({'email': email, 'password': password})
     if user:
-        result = {'message': "Welcome!"}
+        result = {'message': "Welcome"}
         response_pickled = str(jsonpickle.encode(result))
         return Response(response=response_pickled, status=200, mimetype="application/json")
     else:
