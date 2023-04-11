@@ -46,8 +46,7 @@ export class RestService {
       // console.log("value1",res) ;
       console.log("Message:",res.message);
       if(res.message=="Incorrect Email or Password" || res.message==undefined){
-        alert("Incorrect Email or Password");     
-        
+        alert("Incorrect Email or Password");
       }
       else{
         console.log("Welcome to our portal");

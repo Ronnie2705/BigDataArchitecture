@@ -12,8 +12,7 @@ metadata:
 
 spec:
   rules:
-  - host: localhost
-    http:
+  - http:
       paths:
       #
       # Specify the path using a regular expression. The first regex handle
