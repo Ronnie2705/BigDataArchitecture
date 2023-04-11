@@ -15,7 +15,7 @@ export interface Response {
 
 
 export class RestService {
-  postSignupURL= "http://localhost/apiv1/signup"
+  postSignupURL= "/apiv1/signup"
   data: any;
 
   constructor(private http:HttpClient, private router: Router) { }
@@ -36,7 +36,7 @@ export class RestService {
     });
   }
  
-  postloginURL= "http://localhost/apiv1/login"
+  postloginURL= "/apiv1/login"
   postlogin(email:string,password:string){
     const data = {email:email,password:password };
     // console.log(data)

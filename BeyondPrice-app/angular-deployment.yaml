@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: angular-app
-        image: bhawneet1034/bigdata-angular:v1
+        image: jhansisaketa/bigdata-angular:v1
         imagePullPolicy: Always
         ports:
           - containerPort: 80

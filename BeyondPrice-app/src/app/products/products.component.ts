@@ -23,7 +23,7 @@ export class ProductsComponent  implements OnInit  {
 
     console.log(this.data_URL)
     
-    this.http.get("http://localhost/apiv1/fetchData/"+this.data_URL).subscribe(resp=>{
+    this.http.get("/apiv1/fetchData/"+this.data_URL).subscribe(resp=>{
       this.isLoading = false;
       this.products_data = resp
       console.log("jhansi",resp)
