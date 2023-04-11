@@ -35,7 +35,7 @@ export class ProdCompareComponent implements OnInit{
 
     
     const URL_data = {Amazon_URL:this.Amazon_URL,Ebay_URL:this.Ebay_URL };
-    const compare_url = 'http://localhost/apiv1/compareProducts';
+    const compare_url = '/apiv1/compareProducts';
 
     this.http.post(compare_url,URL_data).subscribe(resp=>{
       this.isLoading = false;

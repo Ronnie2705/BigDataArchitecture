@@ -15,7 +15,7 @@ export interface Response {
 
 
 export class RestService {
-  postSignupURL= "http://localhost/apiv1/signup"
+  postSignupURL= "/apiv1/signup"
   data: any;
 
   constructor(private http:HttpClient, private router: Router) { }

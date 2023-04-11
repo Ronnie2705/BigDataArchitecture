@@ -64,6 +64,7 @@ def login():
     password = data.get('password')
 
     user = users_collection.find_one({'email': email, 'password': password})
+    print("user data",user)
     if user:
         First_name = user['firstname']
         result = {'message': "Welcome " + First_name + "!" }
