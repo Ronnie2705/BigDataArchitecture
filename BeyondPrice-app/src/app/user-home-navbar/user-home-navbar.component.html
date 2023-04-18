@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: rgba(0, 0, 1, 0.8)">
   <div class="container-fluid">
-    <a class="navbar-brand" href="./home"><img src="{{logoURL}}" height="40" width="100"></a>
+    <a class="navbar-brand" (click)="gotoUserDash()"><img src="{{logoURL}}" height="40" width="100"></a>
     <!-- Toggle button -->
     <button class="navbar-toggler" type="button" (click)="rightAligned.toggle()" aria-controls="navbarRightAlignExample" aria-expanded="false" aria-label="Toggle navigation">
       <i class="fas fa-bars"></i>
@@ -14,8 +14,8 @@
           <span class="navbar-text" style="color: #00FF7F; font-weight: bold;">Welcome!</span>
         </li>
         <!-- Icon dropdown -->
-        <li mdbDropdown class="nav-item dropdown">
-          <a style="color: #00FF7F; font-weight: bold;" role="button" aria-expanded="false" href="#">
+        <li mdbDropdown class="nav-item dropdown" (click)="gotoHome()">
+          <a style="color: #00FF7F; font-weight: bold;" role="button" aria-expanded="false">
             <i class="fas fa-sign-out-alt"></i>
           </a>
         </li>
