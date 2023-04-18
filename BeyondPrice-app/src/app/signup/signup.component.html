@@ -95,7 +95,7 @@
                                     
                                     <div class="input-group-append">
                                       <span class="input-group-text show-hide-button"  (click)="showPassword = !showPassword">
-                                        <input mdbValidate  mdbInput type="password" id="userPassword"  style="color: white;" [(ngModel)]="validationForm.value.password" type = "{{showPassword ? 'text' : 'password'}}" class="form-control" formControlName="Password" required placeholder="Password"/>
+                                        <input mdbValidate  mdbInput type="password" id="userPassword"  style="color: white;" [(ngModel)]="validationForm.value.userPassword" type = "{{showPassword ? 'text' : 'password'}}" class="form-control" formControlName="userPassword" required placeholder="Password"/>
                                         <i class="fa fa-eye"   *ngIf="showPassword"></i>
                                         <i class="fa fa-eye-slash"  *ngIf="!showPassword"></i>
                                       </span>
@@ -113,9 +113,10 @@
                                   
                                   <div class="input-group-append">
                                     <span class="input-group-text show-hide-button"   (click)="showConfPassword = !showConfPassword">
-                                      <input mdbValidate  mdbInput type="password" id="confirmPassword"  style="color: white;" [(ngModel)]="validationForm.value.password" type = "{{showConfPassword ? 'text' : 'password'}}" class="form-control" formControlName="confirmPassword" required placeholder="Confirm Password"/>
-                                      <i class="fa fa-eye"   *ngIf="showConfPassword"></i>
-                                      <i class="fa fa-eye-slash"  *ngIf="!showConfPassword"></i>
+                                      <input mdbValidate  mdbInput type="password" id="confirmPassword"  style="color: white;" [(ngModel)]="validationForm.value.confirmPassword" type = "{{showConfPassword ? 'text' : 'password'}}" class="form-control" formControlName="confirmPassword" required placeholder="Confirm Password"/>
+                                      <i class="fa fa-eye"  *ngIf="showConfPassword"></i>
+                                      <i class="fa fa-eye-slash"   *ngIf="!showConfPassword"></i>
+                                      
                                       
                                     </span>
                                   </div>

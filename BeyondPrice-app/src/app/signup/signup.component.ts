@@ -8,9 +8,9 @@ import { RestService } from '../rest.service';
 })
 export class SignupComponent {
   validationForm: FormGroup;
-  showpassword: boolean = false;
-  showPassword = false;
-  showConfPassword = false;
+  showpassword: boolean = true;
+  showPassword = true;
+  showConfPassword = true;
 
   constructor(private api:RestService) {
     this.validationForm = new FormGroup({
