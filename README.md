@@ -11,6 +11,9 @@ install gcloud sdk on local machine
 
 # To create cluster on gcp, run following commands:
 
+# Run once to make your ip address static, so that every time you deploy on gcp you get same ip address
+gcloud compute addresses create global-ip --global
+
 gcloud init- for authorization
 
 gcloud config set compute/zone us-central1-b

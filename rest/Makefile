@@ -1,5 +1,5 @@
 VERSION=v1
-DOCKERUSER=jhansisaketa
+DOCKERUSER=bhawneet1034
 
 build:
 	docker build -f Dockerfile-rest -t bigdata-rest .
