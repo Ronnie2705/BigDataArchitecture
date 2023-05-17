@@ -49,3 +49,6 @@ gcloud container clusters delete mykube
 # To see external ip address in your angular pod
 kubectl get svc
 
+# Presentation for whole setup of this project
+https://docs.google.com/presentation/d/1ER9J-tPlghq3FXPQrMDk_fNXqd8zatYyNM-LHwZ7_2c/edit#slide=id.g2148cd7d853_0_47
+
